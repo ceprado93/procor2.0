@@ -1,0 +1,123 @@
+.cart__wrapper {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.cart__wrapper-color {
+  width: 100%;
+  height: 100%;
+  background-color: #5c5c5c7e;
+}
+#cart__page {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  overflow: hidden;
+  background-color: white;
+  z-index: 1001;
+  width: 30vw;
+  height: 100vh;
+  opacity: 1;
+}
+
+.cart__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 3rem;
+  border-bottom: 1px solid rgb(99, 99, 99);
+}
+
+.delete_image {
+  position: absolute;
+  top: -30px;
+  right: 0.5rem;
+  background: transparent;
+  border: 0;
+}
+
+.cart_main {
+  margin-top: 2rem;
+}
+
+.cart__line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cart__productImg {
+  background-size: cover;
+  background-position: center;
+  width: 4rem;
+  height: 5rem;
+}
+
+.cart__itemList {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.cart__button {
+  background: transparent;
+  border: none;
+  font-size: 1em;
+}
+
+.cart__totalPrice {
+  padding-left: 10px !important;
+}
+
+.cart__finalButton {
+  position: absolute;
+  bottom: 5rem;
+  width: 30vw;
+}
+
+.cart__finalButton button {
+  border: 0;
+  padding: 0.5rem 2rem;
+  background-color: #313131;
+  color: white;
+  display: block;
+  margin: 0 auto;
+  border-radius: 25px;
+}
+
+@media (max-width: 980px) {
+  #cart__page {
+    width: 45vw;
+  }
+
+  .cart__finalButton {
+    width: 45vw;
+  }
+}
+
+@media (max-width: 767px) {
+  #cart__page {
+    width: 70vw;
+  }
+
+  .cart__finalButton {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 575px) {
+  #cart__page {
+    width: 85vw;
+  }
+
+  .cart__finalButton {
+    width: 85vw;
+  }
+}

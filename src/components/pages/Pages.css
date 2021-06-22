@@ -1,0 +1,325 @@
+/* HOME */
+
+.articleSection {
+  margin: 0;
+  min-height: calc(100vh - 180px);
+}
+
+.articleSection a {
+  text-decoration: none;
+  color: black;
+}
+
+.articleSection .row {
+  height: 70vh;
+}
+
+.articleSection .col {
+  padding: 0;
+}
+
+.articleSection .col-md-4 {
+  padding: 0;
+}
+
+#article__destacadas {
+  text-align: center;
+  position: relative;
+}
+
+.articleCard {
+  height: calc(100% - 24px);
+  margin: 1.5rem 1rem;
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#article__destacadas h1 {
+  font-size: 2rem;
+  display: table-cell;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  position: absolute;
+  vertical-align: middle;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  visibility: hidden;
+}
+
+#article__destacadas:hover .articleCard {
+  opacity: 0.4;
+}
+
+#article__destacadas:hover h1 {
+  visibility: visible;
+}
+
+/* EMPRESA */
+
+.carousel__events {
+  min-height: calc(100vh - 180px);
+}
+
+.carousel__events .carousel {
+  height: 50%;
+}
+
+.carousel__img {
+  display: block;
+  object-fit: contain;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.company__logo {
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: grayscale(1);
+}
+
+.company__logo:hover {
+  filter: grayscale(0);
+}
+
+/*CONTACTO*/
+
+.contact__form {
+  min-height: calc(100vh - 180px);
+  padding-top: 4rem;
+}
+
+.form-group input {
+  background-color: #f7f7f7;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 25px;
+  box-sizing: content-box;
+  width: 100%;
+  margin: 1rem 0;
+  height: 3em;
+  margin-bottom: 0;
+  text-align: left;
+  padding: 0;
+  line-height: 1rem;
+}
+
+.contact__form input::placeholder {
+  font-family: Montserrat;
+  font-size: 14px;
+  padding-left: 1.5rem;
+}
+
+.contact__textarea {
+  width: 100%;
+  margin: 1rem 0;
+  height: 24rem;
+  padding-top: 1em;
+  resize: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none !important;
+  border-radius: 25px !important;
+  background-color: #f7f7f7 !important;
+  padding-left: 1.5rem;
+  font-family: Montserrat !important;
+}
+
+textarea::placeholder {
+  font-family: Montserrat;
+  font-size: 0.89rem;
+  padding-left: 1.5rem;
+}
+
+#pequeño {
+  font-size: 10px;
+  font-family: Montserrat;
+}
+
+#contact-form .hero_link {
+  background-image: url("../../assets/Recurso\ 20.png");
+  width: 100%;
+  padding: 0.8rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  text-decoration: none;
+  margin-left: 0rem;
+  background-color: transparent;
+  border: none;
+  margin-top: 1rem;
+}
+
+.botones--contacto {
+  text-align: center;
+}
+
+/* ABOUT */
+
+#about__us {
+  padding-top: 4rem;
+  margin: 0 10rem;
+  text-align: center;
+}
+.about__video {
+  margin-bottom: 2rem;
+}
+.about__video video {
+  width: 100%;
+}
+.about__title {
+  font-family: "Montserrat Semi";
+  font-size: 2rem;
+  text-align: center;
+}
+.separator {
+  height: 5rem;
+}
+
+.stadistics {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.block {
+  width: 16rem;
+  display: inline-block;
+  font-size: 2rem;
+  text-align: center;
+}
+.about__us {
+  margin: 0 4rem;
+}
+
+.vision li {
+  list-style: none;
+}
+
+.logos_navbar {
+  height: 2rem;
+  margin: 2rem 0;
+}
+
+.logos_navbar img {
+  height: 100%;
+  margin: 0 5px;
+}
+
+/* REDES */
+
+.social__section {
+  min-height: calc(100vh - 180px);
+}
+
+.mockup__img {
+  height: 55vh;
+  display: block;
+  margin: 1rem auto;
+}
+
+.social__menu {
+  display: flex;
+  justify-content: center;
+}
+
+.social__menu button {
+  border: none;
+  background-color: white;
+  margin: 1rem;
+}
+
+.social__menu-logo {
+  width: 30%;
+}
+
+@media (max-width: 575px) {
+  .articleSection {
+    margin-bottom: 3rem;
+  }
+  .articleSection .row {
+    height: auto;
+  }
+
+  .articleCard {
+    height: 30vh;
+    margin: 1.5rem 3rem;
+    background-size: cover;
+  }
+
+  #article__destacadas h1 {
+    position: absolute;
+    vertical-align: middle;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    visibility: initial;
+    text-align: center;
+    margin-top: 10px;
+    width: 380px;
+    font-family: "Montserrat Semi";
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 1.5rem;
+  }
+
+  #about__us {
+    padding-top: 3rem;
+    margin: 0 2rem;
+  }
+
+  .about__title {
+    margin-bottom: 2rem;
+  }
+
+  .about__video {
+    display: none;
+  }
+
+  .stadistics {
+    margin-bottom: 2rem;
+  }
+
+  .stadistics img:nth-child(4) {
+    display: none;
+  }
+
+  .block {
+    width: 8rem;
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .vision ul {
+    padding-left: 0;
+  }
+
+  .mockup__img {
+    height: 40vh;
+    margin: 2rem auto;
+  }
+
+  .social__menu-logo {
+    width: 80%;
+  }
+}

@@ -1,0 +1,256 @@
+/* FUNNEL */
+
+.funnel {
+  min-height: calc(100vh - 180px);
+  text-align: center;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.funnel_options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.funnel_options a,
+.funnel_options button,
+.funnel_options input,
+.funnel_options select {
+  color: black;
+  padding: 0.7rem 2rem;
+  background-color: #ebebeb;
+  border-radius: 50px;
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+  margin-top: 1rem;
+  border: none;
+  text-transform: uppercase;
+}
+
+.funnel_options input::placeholder {
+  text-align-last: center;
+  color: black;
+}
+
+.funnel_options select {
+  -webkit-border-radius: 50px;
+  -webkit-appearance: none;
+  text-align-last: center;
+}
+
+.funnel_options a:hover,
+.funnel_options button:hover,
+.funnel_options input:hover,
+.funnel_options select:hover {
+  color: white;
+  background-color: #313131;
+  text-decoration: none;
+}
+
+.funnel_options .filled {
+  color: white;
+  background-color: #313131;
+}
+
+.funnel__modal {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(25px) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.funnel__modal form,
+.funnel__modal div {
+  height: 70vh;
+  width: 60vw;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.funnel__modal input {
+  color: black;
+  padding: 0.5rem 2rem;
+  background-color: #ebebeb;
+  border-radius: 50px;
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 1rem;
+  border: none;
+}
+
+.funnel__modal input::placeholder {
+  text-align-last: center;
+}
+
+.funnel__modal button {
+  color: white;
+  padding: 0.5rem 2rem;
+  background-color: #313131;
+  border-radius: 50px;
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 1rem;
+  border: none;
+  text-align-last: center;
+}
+
+.funnel__modal a {
+  color: white;
+  padding: 0.5rem 2rem;
+  background-color: #313131;
+  border-radius: 50px;
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+  margin-top: 1rem;
+  border: none;
+  text-align-last: center;
+}
+
+.hide {
+  display: none !important;
+}
+
+.funnel .test__img {
+  width: 50%;
+  height: 60%;
+  object-fit: scale-down;
+  display: block;
+  margin: 0 auto;
+}
+
+.funnel__link {
+  width: 30% !important;
+  background-color: #313131 !important;
+  color: white !important;
+}
+
+/* OTROS */
+
+.funnel__otros {
+  min-height: calc(100vh - 180px);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.funnel__otros form {
+  margin: 2rem 5rem;
+}
+
+.form-line {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+  grid-auto-rows: minmax(20px, auto);
+}
+
+.form-line input {
+  color: black;
+  padding: 0.5rem 2rem;
+  background-color: white;
+  border: 1px solid #313131;
+  border-radius: 50px;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.funnel__otros .funnel_options input:hover {
+  color: black;
+  background-color: white;
+  text-decoration: none;
+}
+
+.form-line .firstInput {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.form-line .secondInput {
+  grid-column: 2 / 2;
+  grid-row: 1;
+}
+
+.funnel__otros form textarea {
+  background-color: white;
+  border: 1px solid #313131;
+  border-radius: 31px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.funnel__otros button {
+  color: white;
+  background-color: #313131;
+}
+
+@media (max-width: 980px) {
+  .funnel_options a,
+  .funnel_options button,
+  .funnel_options input,
+  .funnel_options select {
+    width: 70%;
+  }
+
+  .funnel__modal input,
+  .funnel__modal button {
+    width: 100%;
+  }
+
+  .funnel .test__img {
+    width: 75%;
+  }
+}
+
+@media (max-width: 767px) {
+  .funnel__link {
+    width: 50% !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .funnel_options a,
+  .funnel_options button,
+  .funnel_options input,
+  .funnel_options select {
+    width: 85%;
+  }
+
+  .funnel .test__img {
+    width: 100%;
+  }
+
+  .funnel__link {
+    width: 70% !important;
+  }
+
+  .funnel__modal form,
+  .funnel__modal div {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 385px) {
+  .funnel_options a,
+  .funnel_options button,
+  .funnel_options input,
+  .funnel_options select {
+    width: 95%;
+  }
+}

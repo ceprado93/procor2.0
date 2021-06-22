@@ -1,0 +1,207 @@
+#product__page .hero_link,
+.boton--producto .hero_buy,
+#contacto .hero_link {
+  background-image: url("../../assets/Recurso\ 20.png");
+  width: 100%;
+  padding: 0.8rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  text-decoration: none;
+  margin-left: 0rem;
+  background-color: transparent;
+  border: none;
+  margin-top: 1rem;
+}
+
+#product__page {
+  text-align: center;
+  margin-bottom: 10rem;
+}
+
+.image__product img {
+  width: 100%;
+}
+
+.product__title h3 {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+.product__title .hero_heading {
+  padding-top: 0;
+}
+
+.product__caracteristics {
+  font-family: Montserrat Semi;
+  margin-bottom: 2rem;
+}
+
+.hero_heading {
+  text-align: center;
+  padding-top: 2em;
+  font-size: 2.5em;
+  font-family: Montserrat Semi;
+  margin: 0;
+}
+
+.hero--pcr-saliva .hero_buy,
+#cart__page .hero_buy {
+  background-image: url("../../assets/Azul.svg");
+  width: 75%;
+  padding: 1rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: black;
+  text-decoration: none;
+}
+
+.hero--antigenos .hero_buy {
+  background-image: url("../../assets/Rosa.svg");
+  width: 75%;
+  padding: 4.5rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: black;
+  text-decoration: none;
+}
+
+.hero--antigenos-saliva .hero_buy {
+  background-image: url("../../assets/Gris.svg");
+  width: 75%;
+  padding: 4.5rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: black;
+  text-decoration: none;
+}
+.hero--saliva .hero_buy {
+  background-image: url("../../assets/Morado.svg");
+  width: 75%;
+  padding: 4.5rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: black;
+  text-decoration: none;
+}
+
+.hero--antigenos .hero_link,
+.hero--serologico .hero_link,
+.hero--pcr-saliva .hero_link,
+.hero--saliva .hero_link,
+#contacto .hero_link,
+.boton--producto .hero_link,
+#cart__page .hero_link {
+  background-image: url("../../assets/Recurso\ 20.png");
+  padding: 7rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-decoration: none;
+  margin-left: 3rem;
+  color: white;
+}
+
+#cart__page .hero_link {
+  margin-left: 0;
+  background-color: transparent;
+  padding: 5rem !important;
+}
+
+.arrow {
+  width: 1.5rem;
+}
+
+.bounce {
+  margin-top: 2rem;
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.arrow img {
+  position: absolute;
+  bottom: 2.5em;
+  width: 1.5rem;
+  margin-top: 20px;
+}
+
+.opinion_section p {
+  margin-bottom: 0;
+  margin-top: 3.6rem;
+  font-size: 2.7rem;
+}
+
+.image__product {
+  height: 40vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.product__times {
+  display: block;
+  width: 100vw;
+  margin: auto;
+}
+
+.phw {
+  margin: 3rem;
+  display: inline-block;
+  width: 25%;
+}
+.phw img {
+  height: 40px;
+  object-fit: contain;
+}
+
+.small__text {
+  font-size: 12.5px;
+  margin: 2rem 15%;
+  text-align: center;
+}
+
+.fixed--btn {
+  height: 25vh;
+  width: 100%;
+  background-color: rgb(254, 254, 254);
+  position: fixed;
+  bottom: 0;
+}
+
+@media (max-width: 575px) {
+  #product__page {
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+  }
+
+  .image__product {
+    margin: 0 1.5rem;
+  }
+
+  .small__text {
+    font-size: 10px;
+    margin: 2rem;
+    text-align: center;
+  }
+}
