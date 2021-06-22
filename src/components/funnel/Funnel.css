@@ -151,7 +151,7 @@
   margin: 2rem 5rem;
 }
 
-.form-line {
+.funnel__otros .form-line {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 50px;
@@ -243,6 +243,18 @@
   .funnel__modal form,
   .funnel__modal div {
     width: 80vw;
+  }
+
+  .form-line .firstInput {
+    grid-column: 1 / 2;
+    grid-column-end: span 2;
+    grid-row: 1;
+  }
+
+  .form-line .secondInput {
+    grid-column: 1 / 2;
+    grid-column-end: span 2;
+    grid-row: 2;
   }
 }
 

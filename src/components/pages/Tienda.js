@@ -18,7 +18,7 @@ const Tienda = () => {
       <Container>
         <section className="articleSection">
           <Row>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/antigenos-saliva">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${antigenosSaliva})` }}></article>
@@ -28,7 +28,7 @@ const Tienda = () => {
                 </div>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/pcr-saliva">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${pcr})` }}></article>
@@ -38,7 +38,7 @@ const Tienda = () => {
                 </div>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/anticuerpos-saliva">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${serologico})` }}></article>
@@ -49,7 +49,7 @@ const Tienda = () => {
               </Link>
             </Col>
 
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/antigenos-25">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${antigenos})` }}></article>
@@ -59,7 +59,7 @@ const Tienda = () => {
                 </div>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/igm-igg">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${saliva})` }}></article>
@@ -69,7 +69,7 @@ const Tienda = () => {
                 </div>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/necesito-test">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${serologico})` }}></article>

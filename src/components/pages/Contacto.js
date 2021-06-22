@@ -24,23 +24,17 @@ const Contact = () => {
   return (
     <section className="contact__form">
       <Container>
+        <h1 id="SemiBold">Contactar</h1>
         <form id="contact-form" onSubmit={sendEmail}>
-          <div className="form-group">
-            <input type="text" className="form-control" placeholder="NOMBRE" name="name" />
-          </div>
-          <div className="form-group">
-            <input
-              type="email"
-              className="form-control"
-              aria-describedby="emailHelp"
-              name="mail"
-              placeholder="CORREO"
-            />
+          <div className="form-line">
+            <input type="text" className="firstInput" placeholder="NOMBRE" name="name" />
+
+            <input type="email" className="secondInput" aria-describedby="emailHelp" name="mail" placeholder="CORREO" />
           </div>
           <div className="form-group">
             <textarea
               className="form-control contact__textarea"
-              rows="5"
+              rows="7"
               placeholder="CONSULTA"
               name="message"
             ></textarea>

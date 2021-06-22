@@ -8,7 +8,7 @@ const BlogDetalles = (props) => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     loadPrueba();
-  });
+  }, []);
 
   function loadPrueba() {
     axios

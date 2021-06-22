@@ -17,7 +17,7 @@ const Home = () => {
       <Container>
         <section className="articleSection">
           <Row>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/necesito-test">
                 <div
                   style={{
@@ -34,7 +34,7 @@ const Home = () => {
                 </div>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/tienda">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${antigenos})` }}></article>
@@ -44,7 +44,7 @@ const Home = () => {
                 </div>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/empresa-evento">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${pcr})` }}></article>
@@ -55,7 +55,7 @@ const Home = () => {
               </Link>
             </Col>
 
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/info-covid">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${news})` }}></article>
@@ -65,7 +65,7 @@ const Home = () => {
                 </div>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/redes">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${saliva})` }}></article>
@@ -75,7 +75,7 @@ const Home = () => {
                 </div>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} lg={4}>
               <Link to="/quienes-somos">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
                   <article className="articleCard" style={{ backgroundImage: `url(${antigenosSaliva})` }}></article>

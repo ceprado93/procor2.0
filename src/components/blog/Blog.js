@@ -9,7 +9,7 @@ const Blogs = () => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     loadNews();
-  });
+  }, []);
 
   function loadNews() {
     axios
