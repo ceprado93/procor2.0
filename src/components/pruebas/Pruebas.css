@@ -28,9 +28,6 @@
   font-size: 2rem;
   margin-bottom: 0;
 }
-.product__title .hero_heading {
-  padding-top: 0;
-}
 
 .product__caracteristics {
   font-family: Montserrat Semi;
@@ -39,7 +36,7 @@
 
 .hero_heading {
   text-align: center;
-  padding-top: 2em;
+  padding-top: 2rem;
   font-size: 2.5em;
   font-family: Montserrat Semi;
   margin: 0;
@@ -199,9 +196,19 @@
     margin: 0 1.5rem;
   }
 
+  .phw {
+    margin: 1rem 3rem;
+  }
+
   .small__text {
     font-size: 10px;
     margin: 2rem;
     text-align: center;
+  }
+
+  #product__page .hero_link,
+  .boton--producto .hero_buy,
+  #contacto .hero_link {
+    width: 90%;
   }
 }

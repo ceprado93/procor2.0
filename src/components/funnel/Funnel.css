@@ -29,6 +29,7 @@
   margin-top: 1rem;
   border: none;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .funnel_options input::placeholder {
@@ -40,6 +41,7 @@
   -webkit-border-radius: 50px;
   -webkit-appearance: none;
   text-align-last: center;
+  text-align: center;
 }
 
 .funnel_options a:hover,
@@ -93,6 +95,7 @@
 
 .funnel__modal input::placeholder {
   text-align-last: center;
+  text-align: center;
 }
 
 .funnel__modal button {
@@ -106,6 +109,7 @@
   margin-top: 1rem;
   border: none;
   text-align-last: center;
+  text-align: center;
 }
 
 .funnel__modal a {
@@ -119,6 +123,7 @@
   margin-top: 1rem;
   border: none;
   text-align-last: center;
+  text-align: center;
 }
 
 .hide {
@@ -126,9 +131,8 @@
 }
 
 .funnel .test__img {
-  width: 50%;
-  height: 60%;
-  object-fit: scale-down;
+  height: 40vh;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
 }
@@ -144,6 +148,7 @@
 .funnel__otros {
   min-height: calc(100vh - 180px);
   text-align: center;
+
   padding: 2rem 0;
 }
 
@@ -195,9 +200,15 @@
   margin-top: 1rem;
 }
 
+.funnel__otros form textarea::placeholder {
+  color: black;
+  font-size: 1rem;
+}
+
 .funnel__otros button {
   color: white;
   background-color: #313131;
+  text-align: center;
 }
 
 @media (max-width: 980px) {
@@ -233,7 +244,7 @@
   }
 
   .funnel .test__img {
-    width: 100%;
+    width: 90%;
   }
 
   .funnel__link {
@@ -256,6 +267,14 @@
     grid-column-end: span 2;
     grid-row: 2;
   }
+
+  .funnel__otros form {
+    margin: 2rem;
+  }
+
+  .funnel__otros .form-line {
+    grid-gap: 0px;
+  }
 }
 
 @media (max-width: 385px) {
@@ -264,5 +283,10 @@
   .funnel_options input,
   .funnel_options select {
     width: 95%;
+  }
+
+  .funnel__otros .funnel_options button,
+  .funnel__otros .funnel_options input {
+    width: 100%;
   }
 }

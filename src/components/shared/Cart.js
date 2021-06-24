@@ -112,7 +112,9 @@ const Cart = () => {
             </div>
             <Row>
               <div className="cart__finalButton">
-                <button>FINALIZAR PEDIDO</button>
+                <a href={checkout.webUrl}>
+                  <button>FINALIZAR PEDIDO</button>
+                </a>
               </div>
             </Row>
           </div>

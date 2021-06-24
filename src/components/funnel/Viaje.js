@@ -111,6 +111,11 @@ const Viaje = () => {
           <select className={filled.place ? " filled" : ""} onChange={(e) => selectPlace(e)}>
             <option>PAIS DE DESTINO </option>
             <option>España</option>
+            <option>Portugal</option>
+            <option>Italia</option>
+            <option>Perù</option>
+            <option>Luxemburgo</option>
+
             <option>Otro</option>
           </select>
           {date ? (
@@ -153,7 +158,11 @@ const Viaje = () => {
       )}
 
       <section className={secondScreen ? "funnel" : "hide"}>
-        {place === "España" ? (
+        {place === "España" ||
+        place === "Portugal" ||
+        place === "Italia" ||
+        place === "Perù" ||
+        place === "Luxemburgo" ? (
           <>
             <div>
               <h2 id="SemiBold">Antigenos de saliva</h2>
@@ -212,6 +221,7 @@ const Viaje = () => {
             <input type="text" name="phone" placeholder="TELEFONO DE CONTACTO" />
             <input type="text" name="mail" placeholder="CORREO ELECTRONICO" />
             <input type="text" name="dni" placeholder="DNI O PASAPORTE" />
+            <input type="text" name="postal" placeholder="CODIGO POSTAL" />
 
             <button type="submit">CONFIRMAR</button>
           </form>

@@ -36,7 +36,7 @@ const Otros = () => {
               <input type="text" className="firstInput" placeholder="CORREO" name="mail" required />
               <input type="text" className="secondInput" placeholder="TELEFONO" name="phone" required />
             </div>
-            <textarea rows="8" placeholder="CONSULTA" name="message"></textarea>
+            <textarea rows="8" placeholder="CONSULTA..." name="message"></textarea>
             <button type="submit" className="hero_link">
               ENVIAR
             </button>

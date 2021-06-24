@@ -22,7 +22,7 @@ const Contact = () => {
   }
 
   return (
-    <section className="contact__form">
+    <section className="contact__form" style={{ minHeight: "100vh - 262px", textAlign: "center" }}>
       <Container>
         <h1 id="SemiBold">Contactar</h1>
         <form id="contact-form" onSubmit={sendEmail}>
@@ -64,7 +64,7 @@ const Contact = () => {
               Para cualquier reclamación puede dirigirse a www.aepd.es
             </p>
 
-            <button type="submit" className="hero_link">
+            <button type="submit" className="hero_link" style={{ textAlign: "center" }}>
               CONTACTAR
             </button>
           </div>

@@ -4,7 +4,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import antigenosSaliva from "../../assets/antigenos-saliva3.png";
 import antigenos from "../../assets/antigenos3.png";
 import pcr from "../../assets/pcr3.png";
-import saliva from "../../assets/anticuerpos-saliva3.png";
+import instagram from "../../assets/red3.png";
+
 import news from "../../assets/news.svg";
 import "./Pages.css";
 
@@ -68,7 +69,7 @@ const Home = () => {
             <Col xs={12} sm={6} lg={4}>
               <Link to="/redes">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
-                  <article className="articleCard" style={{ backgroundImage: `url(${saliva})` }}></article>
+                  <article className="articleCard" style={{ backgroundImage: `url(${instagram})` }}></article>
                   <h1 id="SemiBold">
                     Redes <br></br> Procor
                   </h1>

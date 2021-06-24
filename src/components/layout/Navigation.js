@@ -10,6 +10,11 @@ const Navigation = () => {
   const { openCart } = useContext(ShopContext);
 
   const [showMenu, setShowMenu] = useState(false);
+  const [showlanguage, setShowLanguage] = useState(false);
+
+  function toogleLanguage() {
+    showlanguage ? setShowLanguage(false) : setShowLanguage(true);
+  }
 
   function toogleMenu() {
     showMenu ? setShowMenu(false) : setShowMenu(true);
@@ -32,7 +37,9 @@ const Navigation = () => {
 
       {showMenu && (
         <section className="openMenu">
-          <button onClick={() => toogleMenu()}>X</button>
+          <button className="menuButton__close" onClick={() => toogleMenu()}>
+            X
+          </button>
           <div>
             <Link to="/necesito-test" id="SemiBold" onClick={() => toogleMenu()}>
               Necesito un test
@@ -54,10 +61,21 @@ const Navigation = () => {
             </Link>
           </div>
           <footer>
-            <p>Idioma</p>
-            <Link to="/faqs">FAQ</Link>
-            <Link to="/contacto">Contacto</Link>
+            <button id="SemiBold" onClick={() => toogleLanguage()}>
+              IDIOMA
+            </button>
+            <Link id="SemiBold" to="/faqs" onClick={() => toogleMenu()}>
+              FAQ
+            </Link>
+            <Link id="SemiBold" to="/contacto" onClick={() => toogleMenu()}>
+              CONTACTO
+            </Link>
           </footer>
+          {showlanguage && (
+            <div className="language__box" onClick={() => toogleLanguage()}>
+              <p>Español 🇪🇸</p>
+            </div>
+          )}
         </section>
       )}
     </>

@@ -71,7 +71,7 @@ const Nosotros = () => {
         <a href="https://www.facebook.com/Procorlab-100801542046256/">
           <img src={FB} alt="facebook" />
         </a>
-        <a href="https://instagram.com/procorlab_?igshid=15t963ppv1gvc">
+        <a href="https://www.instagram.com/procorlab/">
           <img src={IG} alt="instagram" />
         </a>
         <a href="https://twitter.com/Procorlab">
