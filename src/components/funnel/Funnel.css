@@ -44,6 +44,84 @@
   text-align: center;
 }
 
+.country__select {
+  position: relative;
+}
+
+.country__select-div {
+  position: absolute;
+  left: 0;
+  top: 0%;
+  z-index: 10;
+  background-color: #ebebeb;
+  border-radius: 15px;
+  width: 100%;
+  color: black;
+  padding: 1rem 0;
+}
+
+.country__select-div ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.country__select-div li {
+  list-style: none;
+  line-height: 1.5rem;
+}
+
+.type__select {
+  position: relative;
+}
+
+.type__select-div {
+  position: absolute;
+  left: 0;
+  top: 0%;
+  z-index: 10;
+  background-color: #ebebeb;
+  border-radius: 15px;
+  width: 100%;
+  color: black;
+  padding: 1rem 0;
+}
+
+.type__select-div ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.type__select-div li {
+  list-style: none;
+  line-height: 1.5rem;
+}
+
+.date__select {
+  position: relative;
+}
+
+.date__select-div {
+  position: absolute;
+  left: 0;
+  top: 0%;
+  z-index: 10;
+  background-color: #ebebeb;
+  border-radius: 15px;
+  width: 100%;
+  color: black;
+  padding: 1rem 0;
+}
+
+.date__select-div ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.date__select-div li {
+  list-style: none;
+  line-height: 1.5rem;
+}
+
 .funnel_options a:hover,
 .funnel_options button:hover,
 .funnel_options input:hover,

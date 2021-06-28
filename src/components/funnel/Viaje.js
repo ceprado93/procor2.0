@@ -10,6 +10,8 @@ const Viaje = () => {
   const [showPlaceModal, setShowPlaceModal] = useState(false);
   const [showDateModal, setShowDateModal] = useState(false);
   const [showFinalModal, setShowFinalModal] = useState(false);
+  const [showCountrySelect, setShowCountrySelect] = useState(false);
+  const [showTypeSelect, setShowTypeSelect] = useState(false);
   const [date, setDate] = useState(undefined);
   const [place, setPlace] = useState(undefined);
   const [type, setType] = useState(undefined);
@@ -47,7 +49,7 @@ const Viaje = () => {
   }, [place, date, type]);
 
   function selectPlace(e) {
-    setPlace(e.target.value);
+    setPlace(e.target.innerHTML);
   }
 
   function selectDate(e) {
@@ -55,7 +57,7 @@ const Viaje = () => {
   }
 
   function selectType(e) {
-    setType(e.target.value);
+    setType(e.target.innerHTML);
   }
 
   function tooglePlaceModal() {
@@ -72,6 +74,14 @@ const Viaje = () => {
 
   const changeScreen = () => {
     setSecondScreen(true);
+  };
+
+  const toggleCountrySelect = () => {
+    showCountrySelect ? setShowCountrySelect(false) : setShowCountrySelect(true);
+  };
+
+  const toggleTypeSelect = () => {
+    showTypeSelect ? setShowTypeSelect(false) : setShowTypeSelect(true);
   };
 
   function sendEmail(e) {
@@ -108,16 +118,47 @@ const Viaje = () => {
               PAIS DE DESTINO
             </button>
           )} */}
-          <select className={filled.place ? " filled" : ""} onChange={(e) => selectPlace(e)}>
-            <option>PAIS DE DESTINO </option>
-            <option>España</option>
-            <option>Portugal</option>
-            <option>Italia</option>
-            <option>Perù</option>
-            <option>Luxemburgo</option>
-
-            <option>Otro</option>
-          </select>
+          {place ? (
+            <button
+              className={filled.place ? "country__select filled" : "country__select"}
+              onClick={() => toggleCountrySelect()}
+            >
+              {place}
+              {showCountrySelect && (
+                <div className="country__select-div">
+                  <ul>
+                    <li onClick={(e) => selectPlace(e)}> PAIS DE DESTINO</li>
+                    <li onClick={(e) => selectPlace(e)}>España</li>
+                    <li onClick={(e) => selectPlace(e)}>Portugal</li>
+                    <li onClick={(e) => selectPlace(e)}>Italia</li>
+                    <li onClick={(e) => selectPlace(e)}>Perù</li>
+                    <li onClick={(e) => selectPlace(e)}>Luxemburgo</li>
+                    <li onClick={(e) => selectPlace(e)}>Otro</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          ) : (
+            <button
+              className={filled.place ? "country__select filled" : "country__select"}
+              onClick={() => toggleCountrySelect()}
+            >
+              PAIS DE DESTINO
+              {showCountrySelect && (
+                <div className="country__select-div">
+                  <ul>
+                    <li onClick={(e) => selectPlace(e)}> PAIS DE DESTINO</li>
+                    <li onClick={(e) => selectPlace(e)}>España</li>
+                    <li onClick={(e) => selectPlace(e)}>Portugal</li>
+                    <li onClick={(e) => selectPlace(e)}>Italia</li>
+                    <li onClick={(e) => selectPlace(e)}>Perù</li>
+                    <li onClick={(e) => selectPlace(e)}>Luxemburgo</li>
+                    <li onClick={(e) => selectPlace(e)}>Otro</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          )}
           {date ? (
             <button className={filled.date ? " filled" : ""} onClick={() => toogleDateModal()}>
               {date}
@@ -127,14 +168,40 @@ const Viaje = () => {
               FECHA DEL VUELO
             </button>
           )}
-          <select className={filled.type ? " filled" : ""} onChange={(e) => selectType(e)}>
-            <option>ALOJAMIENTO </option>
-            <option>Casa Propia</option>
-            <option>Casa rural</option>
-            <option>Hotel</option>
-            <option>Airbnb</option>
-            <option>Otro</option>
-          </select>
+          {type ? (
+            <button className={filled.type ? "type__select filled" : "type__select"} onClick={() => toggleTypeSelect()}>
+              {type}
+              {showTypeSelect && (
+                <div className="type__select-div">
+                  <ul>
+                    <li onClick={(e) => selectType(e)}> ALOJAMIENTO</li>
+                    <li onClick={(e) => selectType(e)}>Casa Propia</li>
+                    <li onClick={(e) => selectType(e)}>Casa rural</li>
+                    <li onClick={(e) => selectType(e)}>Hotel</li>
+                    <li onClick={(e) => selectType(e)}>Airbnb</li>
+                    <li onClick={(e) => selectType(e)}>Otro</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          ) : (
+            <button className={filled.type ? "type__select filled" : "type__select"} onClick={() => toggleTypeSelect()}>
+              ALOJAMIENTO
+              {showTypeSelect && (
+                <div className="type__select-div">
+                  <ul>
+                    <li onClick={(e) => selectType(e)}> ALOJAMIENTO</li>
+                    <li onClick={(e) => selectType(e)}>Casa Propia</li>
+                    <li onClick={(e) => selectType(e)}>Casa rural</li>
+                    <li onClick={(e) => selectType(e)}>Hotel</li>
+                    <li onClick={(e) => selectType(e)}>Airbnb</li>
+                    <li onClick={(e) => selectType(e)}>Otro</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          )}
+
           {date && place && type ? <button onClick={() => changeScreen()}>CONFIRMAR</button> : null}
         </section>
       </section>

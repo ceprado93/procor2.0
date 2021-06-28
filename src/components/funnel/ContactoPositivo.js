@@ -8,6 +8,9 @@ import antigenosSaliva from "../../assets/antigenos-saliva3.png";
 const Viaje = () => {
   const [showFinalModal, setShowFinalModal] = useState(false);
   const [date, setDate] = useState(undefined);
+  const [showCountrySelect, setShowCountrySelect] = useState(false);
+  const [showDateSelect, setShowDateSelect] = useState(false);
+  const [showTypeSelect, setShowTypeSelect] = useState(false);
   const [place, setPlace] = useState(undefined);
   const [type, setType] = useState(undefined);
   const [thanks, setThanks] = useState(false);
@@ -45,15 +48,27 @@ const Viaje = () => {
   }, [place, date, type]);
 
   function selectPlace(e) {
-    setPlace(e.target.value);
+    setPlace(e.target.innerHTML);
   }
 
+  const toggleCountrySelect = () => {
+    showCountrySelect ? setShowCountrySelect(false) : setShowCountrySelect(true);
+  };
+
+  const toggleTypeSelect = () => {
+    showTypeSelect ? setShowTypeSelect(false) : setShowTypeSelect(true);
+  };
+
+  const toggleDateSelect = () => {
+    showDateSelect ? setShowDateSelect(false) : setShowDateSelect(true);
+  };
+
   function selectDate(e) {
-    setDate(e.target.value);
+    setDate(e.target.innerHTML);
   }
 
   function selectType(e) {
-    setType(e.target.value);
+    setType(e.target.innerHTML);
   }
 
   const toogleFinalModal = () => {
@@ -83,32 +98,117 @@ const Viaje = () => {
       <section className={secondScreen ? "hide" : "funnel"}>
         <h2 id="SemiBold">CONTACTO CON POSITIVO</h2>
         <section className="funnel_options">
-          <select className={filled.place ? " filled" : ""} onChange={(e) => selectPlace(e)}>
-            <option>RELACIÓN CON EL POSITIVO </option>
-            <option>Pareja</option>
-            <option>Familiar</option>
-            <option>Amigo</option>
-            <option>Compañero</option>
-            <option>Otro</option>
-          </select>
-          <select className={filled.date ? " filled" : ""} onChange={(e) => selectDate(e)}>
-            <option>DÍAS DESDE EL CONTACTO </option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-          </select>
-          <select className={filled.type ? " filled" : ""} onChange={(e) => selectType(e)}>
-            <option>SÍNTOMAS </option>
-            <option>Si </option>
-            <option>No </option>
-          </select>
+          {place ? (
+            <button
+              className={filled.place ? "country__select filled" : "country__select"}
+              onClick={() => toggleCountrySelect()}
+            >
+              {place}
+              {showCountrySelect && (
+                <div className="country__select-div">
+                  <ul>
+                    <li onClick={(e) => selectPlace(e)}> RELACIÓN CON EL POSITIVO</li>
+                    <li onClick={(e) => selectPlace(e)}>Pareja</li>
+                    <li onClick={(e) => selectPlace(e)}>Familiar</li>
+                    <li onClick={(e) => selectPlace(e)}>Amigo</li>
+                    <li onClick={(e) => selectPlace(e)}>Compañero</li>
+                    <li onClick={(e) => selectPlace(e)}>Otro</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          ) : (
+            <button
+              className={filled.place ? "country__select filled" : "country__select"}
+              onClick={() => toggleCountrySelect()}
+            >
+              RELACIÓN CON EL POSITIVO
+              {showCountrySelect && (
+                <div className="country__select-div">
+                  <ul>
+                    <li onClick={(e) => selectPlace(e)}> RELACIÓN CON EL POSITIVO</li>
+                    <li onClick={(e) => selectPlace(e)}>Pareja</li>
+                    <li onClick={(e) => selectPlace(e)}>Familiar</li>
+                    <li onClick={(e) => selectPlace(e)}>Amigo</li>
+                    <li onClick={(e) => selectPlace(e)}>Compañero</li>
+                    <li onClick={(e) => selectPlace(e)}>Otro</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          )}
+          {date ? (
+            <button className={filled.date ? "date__select filled" : "date__select"} onClick={() => toggleDateSelect()}>
+              {date}
+              {showDateSelect && (
+                <div className="type__select-div">
+                  <ul>
+                    <li onClick={(e) => selectDate(e)}> DÍAS DESDE EL CONTACTO</li>
+                    <li onClick={(e) => selectDate(e)}>1</li>
+                    <li onClick={(e) => selectDate(e)}>2</li>
+                    <li onClick={(e) => selectDate(e)}>3</li>
+                    <li onClick={(e) => selectDate(e)}>4</li>
+                    <li onClick={(e) => selectDate(e)}>5</li>
+                    <li onClick={(e) => selectDate(e)}>6</li>
+                    <li onClick={(e) => selectDate(e)}>7</li>
+                    <li onClick={(e) => selectDate(e)}>8</li>
+                    <li onClick={(e) => selectDate(e)}>9</li>
+                    <li onClick={(e) => selectDate(e)}>10</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          ) : (
+            <button className={filled.date ? "date__select filled" : "date__select"} onClick={() => toggleDateSelect()}>
+              DÍAS DESDE EL CONTACTO
+              {showDateSelect && (
+                <div className="date__select-div">
+                  <ul>
+                    <li onClick={(e) => selectDate(e)}> DÍAS DESDE EL CONTACTO</li>
+                    <li onClick={(e) => selectDate(e)}>1</li>
+                    <li onClick={(e) => selectDate(e)}>2</li>
+                    <li onClick={(e) => selectDate(e)}>3</li>
+                    <li onClick={(e) => selectDate(e)}>4</li>
+                    <li onClick={(e) => selectDate(e)}>5</li>
+                    <li onClick={(e) => selectDate(e)}>6</li>
+                    <li onClick={(e) => selectDate(e)}>7</li>
+                    <li onClick={(e) => selectDate(e)}>8</li>
+                    <li onClick={(e) => selectDate(e)}>9</li>
+                    <li onClick={(e) => selectDate(e)}>10</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          )}
+          {type ? (
+            <button className={filled.type ? "type__select filled" : "type__select"} onClick={() => toggleTypeSelect()}>
+              {type}
+              {showTypeSelect && (
+                <div className="type__select-div">
+                  <ul>
+                    <li onClick={(e) => selectType(e)}> SÍNTOMAS</li>
+
+                    <li onClick={(e) => selectType(e)}>Si</li>
+                    <li onClick={(e) => selectType(e)}>No</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          ) : (
+            <button className={filled.type ? "type__select filled" : "type__select"} onClick={() => toggleTypeSelect()}>
+              SÍNTOMAS
+              {showTypeSelect && (
+                <div className="type__select-div">
+                  <ul>
+                    <li onClick={(e) => selectType(e)}> SÍNTOMAS</li>
+                    <li onClick={(e) => selectType(e)}>Si</li>
+                    <li onClick={(e) => selectType(e)}>No</li>
+                  </ul>
+                </div>
+              )}
+            </button>
+          )}
+
           {date && place && type ? <button onClick={() => changeScreen()}>CONFIRMAR</button> : null}
         </section>
       </section>
