@@ -5,14 +5,26 @@ import antigenosSaliva from "../../assets/antigenos-saliva3.png";
 import antigenos from "../../assets/antigenos3.png";
 import pcr from "../../assets/pcr3.png";
 import instagram from "../../assets/red3.png";
+import BookingService from "../../service/booking.service";
 
 import news from "../../assets/news.svg";
 import "./Pages.css";
 
 const Home = () => {
+  const bookingService = new BookingService();
+
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
+    getBookings();
   }, []);
+
+  function getBookings(e) {
+    bookingService
+      .getBookings()
+      .then((response) => console.log(response.data))
+      .catch((err) => console.log(err));
+  }
+
   return (
     <>
       <Container>

@@ -11,7 +11,7 @@ const Faqs = () => {
   }, []);
 
   return (
-    <section>
+    <section style={{ textAlign: "justify" }}>
       {size ? (
         <p id="SemiBold" className="titulo">
           PREGUNTAS FRECUENTES

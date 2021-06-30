@@ -5,6 +5,7 @@ import emailjs from "emailjs-com";
 import { Link } from "react-router-dom";
 import antigenosSaliva from "../../assets/antigenos-saliva3.png";
 import pcr from "../../assets/pcr5.png";
+import BookingService from "../../service/booking.service";
 
 const Viaje = () => {
   const [showPlaceModal, setShowPlaceModal] = useState(false);
@@ -18,27 +19,45 @@ const Viaje = () => {
   const [thanks, setThanks] = useState(false);
   const [secondScreen, setSecondScreen] = useState(undefined);
   const [filled, setFilled] = useState({ place: false, date: false, type: false });
+  const [newBooking, setNewBooking] = useState({
+    name: undefined,
+    birth: undefined,
+    phone: undefined,
+    mail: undefined,
+    id: undefined,
+    symptoms: undefined,
+    contact: undefined,
+    destination: undefined,
+    fligthDate: undefined,
+    type: undefined,
+    test: undefined,
+    place: undefined,
+    language: undefined,
+    postal: undefined,
+  });
+
+  const bookingService = new BookingService();
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    if (type) {
+    if (newBooking.type) {
       setFilled((filled) => {
         return {
           ...filled,
           type: true,
         };
       });
-    } else if (date) {
+    } else if (newBooking.fligthDate) {
       setFilled((filled) => {
         return {
           ...filled,
           date: true,
         };
       });
-    } else if (place) {
+    } else if (newBooking.destination) {
       setFilled((filled) => {
         return {
           ...filled,
@@ -95,7 +114,21 @@ const Viaje = () => {
         console.log(error.text);
       }
     );
+
+    handleNewBooking(e);
     setThanks(true);
+  }
+
+  function handleNewBooking(e) {
+    e.preventDefault();
+    console.log(e.target.value);
+    bookingService
+      .saveBooking(newBooking)
+      .then((response) => {
+        console.log(response.data);
+        setThanks(true);
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
@@ -118,17 +151,38 @@ const Viaje = () => {
               PAIS DE DESTINO
             </button>
           )} */}
-          {place ? (
-            <button
-              className={filled.place ? "country__select filled" : "country__select"}
-              onClick={() => toggleCountrySelect()}
-            >
-              {place}
+          {newBooking.destination ? (
+            <button className="country__select filled" onClick={() => toggleCountrySelect()}>
+              {newBooking.destination}
               {showCountrySelect && (
                 <div className="country__select-div">
                   <ul>
-                    <li onClick={(e) => selectPlace(e)}> PAIS DE DESTINO</li>
-                    <li onClick={(e) => selectPlace(e)}>España</li>
+                    <li
+                      // onClick={(e) => selectPlace(e)}
+                      onClick={(e) =>
+                        setNewBooking((newBooking) => {
+                          return {
+                            ...newBooking,
+                            destination: e.target.innerHTML,
+                          };
+                        })
+                      }
+                    >
+                      PAIS DE DESTINO
+                    </li>
+                    <li
+                      onClick={(e) =>
+                        setNewBooking((newBooking) => {
+                          return {
+                            ...newBooking,
+                            destination: e.target.innerHTML,
+                          };
+                        })
+                      }
+                      // onClick={(e) => selectPlace(e)}
+                    >
+                      España
+                    </li>
                     <li onClick={(e) => selectPlace(e)}>Portugal</li>
                     <li onClick={(e) => selectPlace(e)}>Italia</li>
                     <li onClick={(e) => selectPlace(e)}>Perù</li>
@@ -139,16 +193,37 @@ const Viaje = () => {
               )}
             </button>
           ) : (
-            <button
-              className={filled.place ? "country__select filled" : "country__select"}
-              onClick={() => toggleCountrySelect()}
-            >
+            <button className="country__select" onClick={() => toggleCountrySelect()}>
               PAIS DE DESTINO
               {showCountrySelect && (
                 <div className="country__select-div">
                   <ul>
-                    <li onClick={(e) => selectPlace(e)}> PAIS DE DESTINO</li>
-                    <li onClick={(e) => selectPlace(e)}>España</li>
+                    <li
+                      // onClick={(e) => selectPlace(e)}
+                      onClick={(e) =>
+                        setNewBooking((newBooking) => {
+                          return {
+                            ...newBooking,
+                            destination: e.target.innerHTML,
+                          };
+                        })
+                      }
+                    >
+                      PAIS DE DESTINO
+                    </li>
+                    <li
+                      // onClick={(e) => selectPlace(e)}
+                      onClick={(e) =>
+                        setNewBooking((newBooking) => {
+                          return {
+                            ...newBooking,
+                            destination: e.target.innerHTML,
+                          };
+                        })
+                      }
+                    >
+                      España
+                    </li>
                     <li onClick={(e) => selectPlace(e)}>Portugal</li>
                     <li onClick={(e) => selectPlace(e)}>Italia</li>
                     <li onClick={(e) => selectPlace(e)}>Perù</li>
@@ -159,12 +234,12 @@ const Viaje = () => {
               )}
             </button>
           )}
-          {date ? (
-            <button className={filled.date ? " filled" : ""} onClick={() => toogleDateModal()}>
-              {date}
+          {newBooking.fligthDate ? (
+            <button className=" filled" onClick={() => toogleDateModal()}>
+              {newBooking.fligthDate}
             </button>
           ) : (
-            <button className={filled.date ? " filled" : ""} onClick={() => toogleDateModal()}>
+            <button className="" onClick={() => toogleDateModal()}>
               FECHA DEL VUELO
             </button>
           )}
@@ -185,13 +260,28 @@ const Viaje = () => {
               )}
             </button>
           ) : (
-            <button className={filled.type ? "type__select filled" : "type__select"} onClick={() => toggleTypeSelect()}>
+            <button
+              className={newBooking.type ? "type__select filled" : "type__select"}
+              onClick={() => toggleTypeSelect()}
+            >
               ALOJAMIENTO
               {showTypeSelect && (
                 <div className="type__select-div">
                   <ul>
-                    <li onClick={(e) => selectType(e)}> ALOJAMIENTO</li>
-                    <li onClick={(e) => selectType(e)}>Casa Propia</li>
+                    <li onClick={(e) => selectType(e)}>ALOJAMIENTO</li>
+                    <li
+                      // onClick={(e) => selectType(e)}
+                      onClick={(e) =>
+                        setNewBooking((newBooking) => {
+                          return {
+                            ...newBooking,
+                            type: e.target.innerHTML,
+                          };
+                        })
+                      }
+                    >
+                      Casa Propia
+                    </li>
                     <li onClick={(e) => selectType(e)}>Casa rural</li>
                     <li onClick={(e) => selectType(e)}>Hotel</li>
                     <li onClick={(e) => selectType(e)}>Airbnb</li>
@@ -202,23 +292,37 @@ const Viaje = () => {
             </button>
           )}
 
-          {date && place && type ? <button onClick={() => changeScreen()}>CONFIRMAR</button> : null}
+          {newBooking.fligthDate && newBooking.destination && newBooking.type ? (
+            <button onClick={() => changeScreen()}>CONFIRMAR</button>
+          ) : null}
         </section>
       </section>
 
-      {showPlaceModal && (
+      {/* {showPlaceModal && (
         <section className="funnel__modal">
           <form onSubmit={(e) => tooglePlaceModal(e)}>
             <input type="text" onChange={(e) => selectPlace(e)} placeholder="ESCRIBE TU DESTINO..." />
             <button type="submit">CONFIRMAR</button>
           </form>
         </section>
-      )}
+      )} */}
 
       {showDateModal && (
         <section className="funnel__modal">
           <form onSubmit={(e) => toogleDateModal(e)}>
-            <input type="text" onChange={(e) => selectDate(e)} placeholder="FECHA DEL VUELO" />
+            <input
+              type="text"
+              // onChange={(e) => selectDate(e)}
+              onChange={(e) =>
+                setNewBooking((newBooking) => {
+                  return {
+                    ...newBooking,
+                    fligthDate: e.target.value,
+                  };
+                })
+              }
+              placeholder="FECHA DEL VUELO"
+            />
             <button type="submit">CONFIRMAR</button>
           </form>
         </section>
@@ -264,7 +368,8 @@ const Viaje = () => {
 
       {showFinalModal && (
         <section className="funnel__modal">
-          <form className={thanks ? "hide" : ""} onSubmit={(e) => sendEmail(e)}>
+          {/* <form className={thanks ? "hide" : ""} onSubmit={(e) => sendEmail(e)}> */}
+          <form className={thanks ? "hide" : ""} onSubmit={(e) => handleNewBooking(e)}>
             <input
               type="text"
               name="place"
@@ -283,12 +388,110 @@ const Viaje = () => {
               value={type}
               style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }}
             />
-            <input type="text" name="name" placeholder="NOMBRE Y APELLIDOS" />
-            <input type="text" name="birth" placeholder="FECHA DE NACIMIENTO" />
-            <input type="text" name="phone" placeholder="TELEFONO DE CONTACTO" />
-            <input type="text" name="mail" placeholder="CORREO ELECTRONICO" />
-            <input type="text" name="dni" placeholder="DNI O PASAPORTE" />
-            <input type="text" name="postal" placeholder="CODIGO POSTAL" />
+            <input
+              type="text"
+              onChange={(e) =>
+                setNewBooking((newBooking) => {
+                  return {
+                    ...newBooking,
+                    name: e.target.value,
+                  };
+                })
+              }
+              name="name"
+              placeholder="NOMBRE Y APELLIDOS"
+            />
+            <input
+              type="text"
+              onChange={(e) =>
+                setNewBooking((newBooking) => {
+                  return {
+                    ...newBooking,
+                    birth: e.target.value,
+                  };
+                })
+              }
+              name="birth"
+              placeholder="FECHA DE NACIMIENTO"
+            />
+            <input
+              type="text"
+              onChange={(e) =>
+                setNewBooking((newBooking) => {
+                  return {
+                    ...newBooking,
+                    phone: e.target.value,
+                  };
+                })
+              }
+              name="phone"
+              placeholder="TELEFONO DE CONTACTO"
+            />
+            <input
+              type="text"
+              onChange={(e) =>
+                setNewBooking((newBooking) => {
+                  return {
+                    ...newBooking,
+                    mail: e.target.value,
+                  };
+                })
+              }
+              name="mail"
+              placeholder="CORREO ELECTRONICO"
+            />
+            <input
+              type="text"
+              onChange={(e) =>
+                setNewBooking((newBooking) => {
+                  return {
+                    ...newBooking,
+                    id: e.target.value,
+                  };
+                })
+              }
+              name="dni"
+              placeholder="DNI O PASAPORTE"
+            />
+            <input
+              type="text"
+              onChange={(e) =>
+                setNewBooking((newBooking) => {
+                  return {
+                    ...newBooking,
+                    postal: e.target.value,
+                  };
+                })
+              }
+              name="postal"
+              placeholder="CODIGO POSTAL"
+            />
+            <input
+              type="text"
+              onChange={(e) =>
+                setNewBooking((newBooking) => {
+                  return {
+                    ...newBooking,
+                    test: e.target.value,
+                  };
+                })
+              }
+              name="test"
+              placeholder="TIPO DE PRUEBA"
+            />
+            <input
+              type="text"
+              onChange={(e) =>
+                setNewBooking((newBooking) => {
+                  return {
+                    ...newBooking,
+                    place: e.target.value,
+                  };
+                })
+              }
+              name="place"
+              placeholder="PRUEBA EN CLÍNICA O A DOMICILIO"
+            />
 
             <button type="submit">CONFIRMAR</button>
           </form>

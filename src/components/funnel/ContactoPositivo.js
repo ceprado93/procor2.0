@@ -4,6 +4,7 @@ import "./Funnel.css";
 import emailjs from "emailjs-com";
 import { Link } from "react-router-dom";
 import antigenosSaliva from "../../assets/antigenos-saliva3.png";
+import BookingService from "../../service/booking.service";
 
 const Viaje = () => {
   const [showFinalModal, setShowFinalModal] = useState(false);
@@ -17,6 +18,8 @@ const Viaje = () => {
   const [secondScreen, setSecondScreen] = useState(undefined);
 
   const [filled, setFilled] = useState({ place: false, date: false, type: false });
+
+  const bookingService = new BookingService();
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
