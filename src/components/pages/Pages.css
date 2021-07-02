@@ -71,7 +71,8 @@
 }
 
 .carousel__events .carousel {
-  height: 50%;
+  height: 70%;
+  margin-top: 5rem;
 }
 
 .carousel__img {
@@ -80,6 +81,10 @@
   width: 100%;
   margin: 0 auto;
 }
+
+/* .carousel-control-next-icon {
+  background-image: url(https://image.flaticon.com/icons/png/512/130/130884.png) !important;
+} */
 
 .company__logo {
   width: 100%;
@@ -91,6 +96,22 @@
 
 .company__logo:hover {
   filter: grayscale(0);
+}
+
+.company_phone {
+  text-align: center;
+}
+
+.company_phone button {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 5rem;
+  font-size: 1rem;
+  padding: 0.7rem 4rem;
+  background-color: #313131;
+  border-radius: 25px;
+  border: none;
+  text-transform: uppercase;
 }
 
 /*CONTACTO*/

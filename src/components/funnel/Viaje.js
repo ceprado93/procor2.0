@@ -119,16 +119,33 @@ const Viaje = () => {
     setThanks(true);
   }
 
-  function handleNewBooking(e) {
+  async function handleNewBooking(e) {
     e.preventDefault();
-    console.log(e.target.value);
-    bookingService
-      .saveBooking(newBooking)
-      .then((response) => {
-        console.log(response.data);
-        setThanks(true);
-      })
-      .catch((err) => console.log(err));
+    // console.log(e.target.value);
+    // bookingService
+    //   .saveBooking(newBooking)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     setThanks(true);
+    //   })
+    //   .catch((err) => console.log(err));
+    // Codificar nuestro videojuego como JSON
+    const cargaUtil = JSON.stringify(newBooking);
+
+    // ¡Y enviarlo!
+    const respuesta = await fetch(`https://nuevo.procorlab.es/prueba.php`, {
+      method: "POST",
+      body: cargaUtil,
+    });
+
+    const exitoso = await respuesta;
+    if (exitoso) {
+      console.log(exitoso);
+
+      setThanks(true);
+    } else {
+      console.log("error");
+    }
   }
 
   return (
