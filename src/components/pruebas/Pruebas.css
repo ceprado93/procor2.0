@@ -1,18 +1,22 @@
 #product__page .hero_link,
 .boton--producto .hero_buy,
 #contacto .hero_link {
-  background-image: url("../../assets/Recurso\ 20.png");
-  width: 100%;
-  padding: 0.8rem;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  padding: 1rem 5rem;
   color: white;
   text-decoration: none;
   margin-left: 0rem;
-  background-color: transparent;
+  background-color: #333138;
   border: none;
+  border-radius: 50px;
   margin-top: 1rem;
+}
+
+#product__page .hero_link:active,
+.boton--producto .hero_buy:active,
+#contacto .hero_link:active {
+  background-color: #71867f;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 #product__page {
@@ -65,6 +69,24 @@
   text-decoration: none;
 }
 
+.qty__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10050;
+  backdrop-filter: blur(25px);
+}
+
+.qty__form {
+  height: 50vh;
+  width: 70vw;
+  margin-left: 15vw;
+  margin-top: 25vh;
+  background-color: white;
+}
+
 .hero--antigenos-saliva .hero_buy {
   background-image: url("../../assets/Gris.svg");
   width: 75%;
@@ -86,7 +108,7 @@
   text-decoration: none;
 }
 
-.hero--antigenos .hero_link,
+/* .hero--antigenos .hero_link,
 .hero--serologico .hero_link,
 .hero--pcr-saliva .hero_link,
 .hero--saliva .hero_link,
@@ -101,7 +123,7 @@
   text-decoration: none;
   margin-left: 3rem;
   color: white;
-}
+} */
 
 #cart__page .hero_link {
   margin-left: 0;
@@ -210,5 +232,13 @@
   .boton--producto .hero_buy,
   #contacto .hero_link {
     width: 90%;
+  }
+
+  .qty__form {
+    height: 50vh;
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 25vh;
+    background-color: white;
   }
 }

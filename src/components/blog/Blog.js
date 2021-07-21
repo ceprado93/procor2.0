@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Spinner } from "react-bootstrap";
 import "./Blog.css";
 
 const Blogs = () => {
@@ -22,7 +23,7 @@ const Blogs = () => {
 
   return (
     <div id="blogs">
-      <div id="politicas">
+      <div id={posts?.length > 0 ? "politicas" : ""}>
         <div className="columnaNoticias">
           {posts?.length > 0 ? (
             posts.map((elm, idx) => (
@@ -36,7 +37,9 @@ const Blogs = () => {
               </Link>
             ))
           ) : (
-            <div className="noPosts"> No hay entradas relacionadas</div>
+            <div className="noPosts">
+              <Spinner animation="border" />
+            </div>
           )}
         </div>
       </div>

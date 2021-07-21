@@ -14,8 +14,8 @@ const Footer = () => {
         <button id="SemiBold" onClick={() => toogleLanguage()}>
           IDIOMA
         </button>
-        <Link id="SemiBold" to="/faqs">
-          FAQ
+        <Link id="SemiBold" to="/politicas">
+          POLÍTICAS
         </Link>
         <Link id="SemiBold" to="/contacto">
           CONTACTO

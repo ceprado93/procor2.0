@@ -9,9 +9,18 @@
   width: calc(100vw);
 }
 
+.navigation a {
+  padding-left: 16px;
+}
+
 .navigation_icon {
   height: 20px;
   width: 20px;
+}
+
+.navigation_icon:hover,
+.navigation_icon1:hover {
+  cursor: pointer;
 }
 
 .navigation_icon1 {
@@ -29,7 +38,7 @@
   position: fixed;
   top: 0;
   overflow: hidden;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(25px);
   z-index: 1000;
 }
 
@@ -104,10 +113,6 @@ footer a {
 @media (max-width: 575px) {
   .navigation {
     padding: 3rem;
-  }
-
-  .navigation a {
-    padding-left: 16px;
   }
 
   footer {

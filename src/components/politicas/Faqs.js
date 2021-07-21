@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from "react";
 import { Container } from "react-bootstrap";
-import "./Pages.css";
+import "./Politicas.css";
 
 const Faqs = () => {
   const [size, setSize] = useState(false);

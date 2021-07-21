@@ -42,7 +42,7 @@ const Navigation = () => {
           </button>
           <div>
             <Link to="/necesito-test" id="SemiBold" onClick={() => toogleMenu()}>
-              Necesito un test
+              Necesito un test / cita
             </Link>
             <Link to="/tienda" id="SemiBold" onClick={() => toogleMenu()}>
               Nuestro e-commerce
@@ -59,13 +59,16 @@ const Navigation = () => {
             <Link to="/quienes-somos" id="SemiBold" onClick={() => toogleMenu()}>
               Quienes somos
             </Link>
+            <Link id="SemiBold" to="/politicas" onClick={() => toogleMenu()}>
+              Políticas
+            </Link>
           </div>
           <footer>
             <button id="SemiBold" onClick={() => toogleLanguage()}>
               IDIOMA
             </button>
-            <Link id="SemiBold" to="/faqs" onClick={() => toogleMenu()}>
-              FAQ
+            <Link id="SemiBold" to="/politicas" onClick={() => toogleMenu()}>
+              POLÍTICAS
             </Link>
             <Link id="SemiBold" to="/contacto" onClick={() => toogleMenu()}>
               CONTACTO

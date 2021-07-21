@@ -9,6 +9,10 @@
   justify-content: space-between;
 }
 
+.funnel__title {
+  font-size: 1.6rem;
+}
+
 .funnel_options {
   display: flex;
   flex-direction: column;
@@ -137,7 +141,7 @@
 }
 
 .funnel__modal {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   position: fixed;
   top: 0;
@@ -146,6 +150,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.closeFinal__btn {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  border: none;
+  background: transparent;
+  padding: 2rem;
+  font-size: 2rem;
 }
 
 .funnel__modal form,
@@ -159,7 +173,9 @@
   flex-direction: column;
 }
 
-.funnel__modal input {
+.funnel__modal input,
+.funnel__modal select,
+.type__select-dom {
   color: black;
   padding: 0.5rem 2rem;
   background-color: #ebebeb;
@@ -169,6 +185,12 @@
   width: 60%;
   margin-top: 1rem;
   border: none;
+  position: relative;
+  text-align: center;
+}
+
+.formgroup-hidden {
+  visibility: hidden;
 }
 
 .funnel__modal input::placeholder {
@@ -176,7 +198,7 @@
   text-align: center;
 }
 
-.funnel__modal button {
+.modal__submitButton {
   color: white;
   padding: 0.5rem 2rem;
   background-color: #313131;
@@ -188,6 +210,10 @@
   border: none;
   text-align-last: center;
   text-align: center;
+}
+
+.funnel__space {
+  padding: 8rem 0;
 }
 
 .funnel__modal a {
@@ -219,6 +245,37 @@
   width: 30% !important;
   background-color: #313131 !important;
   color: white !important;
+}
+
+.calendario__hora {
+  width: 25vw;
+  font-size: 3em;
+  font-weight: 400;
+  display: block;
+  margin: auto;
+  padding: 5px 0;
+  background-color: #eeeaea;
+}
+
+.calendario__hora_bloque {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendario__hora-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  width: 40%;
+}
+
+.calendario__hora-nav p {
+  margin: 10px 0;
+}
+
+.calendario__hora-nav img {
+  width: 12%;
 }
 
 /* OTROS */
@@ -302,6 +359,26 @@
     width: 100%;
   }
 
+  .funnel__modal input::-webkit-datetime-edit {
+    padding: 1em;
+    -webkit-appearance: none;
+  }
+
+  .closeFinal__btn {
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    border: none;
+    background: transparent;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+  .funnel__modal button {
+    line-height: 0.5rem;
+    padding: 1.2rem;
+  }
+
   .funnel .test__img {
     width: 75%;
   }
@@ -327,6 +404,14 @@
 
   .funnel__link {
     width: 70% !important;
+  }
+
+  .funnel__modal {
+    min-height: 150vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(35px) !important;
   }
 
   .funnel__modal form,
@@ -366,5 +451,15 @@
   .funnel__otros .funnel_options button,
   .funnel__otros .funnel_options input {
     width: 100%;
+  }
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .safari_only {
+      padding: 1.22rem 2rem;
+      line-height: 0;
+      color: #848484;
+    }
   }
 }

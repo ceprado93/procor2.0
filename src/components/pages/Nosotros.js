@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import Separador from "../../assets/Recurso 26.png";
 
 import FB from "../../assets/facebook-blanco.png";
@@ -8,15 +8,16 @@ import Video from "../../assets/video-nosotros.mp4";
 import "./Pages.css";
 
 const Nosotros = () => {
+  const [size, setSize] = useState(false);
+
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
+    window.innerWidth < 500 && setSize(true);
   }, []);
   return (
     <div id="about__us" className="page">
       <h1 className="about__title">Sobre nosotros</h1>
-      <div className="about__video">
-        <video loop autostart autoPlay src={Video} type="video/mp4" />
-      </div>
+      <div className="about__video">{size ? <video src={Video} type="video/mp4" /> : <video loop autostart autoPlay src={Video} type="video/mp4" />}</div>
       <section className="stadistics">
         <div className="block">
           <p id="SemiBold">+20</p>
@@ -44,8 +45,8 @@ const Nosotros = () => {
         <div className="team">
           <p id="SemiBold">Somos un equipo de trabajo especializado</p>
           <p>
-            Contamos con más de 20 años de experiencia en el sector sanitario, que ha aunado fuerzas por la imperativa
-            necesidad, tanto social como económica, de retomar la normalidad de la que siempre hemos disfrutado.
+            Contamos con más de 20 años de experiencia en el sector sanitario, que ha aunado fuerzas por la imperativa necesidad, tanto social como económica, de retomar la normalidad de la que
+            siempre hemos disfrutado.
           </p>
         </div>
         <div className="mision">

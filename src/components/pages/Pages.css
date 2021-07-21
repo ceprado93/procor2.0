@@ -5,6 +5,17 @@
   min-height: calc(100vh - 180px);
 }
 
+.articleSection h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.reserva__link {
+  padding: 0.5rem 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 .articleSection a {
   text-decoration: none;
   color: black;
@@ -36,24 +47,8 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  background-position: 100% 30%;
+  background-position: center;
   background-size: cover;
-}
-
-#article__destacadas h1 {
-  font-size: 2rem;
-  display: table-cell;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  position: absolute;
-  vertical-align: middle;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0;
-  line-height: 1;
-  text-transform: uppercase;
-  visibility: hidden;
 }
 
 #article__destacadas:hover .articleCard {
@@ -66,25 +61,46 @@
 
 /* EMPRESA */
 
-.carousel__events {
+.firstSection__events {
   min-height: calc(100vh - 180px);
+  display: flex;
+  align-items: center;
 }
 
-.carousel__events .carousel {
+.firstSectionl__events .carousel {
   height: 70%;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
-.carousel__img {
+.firstSection__img {
   display: block;
   object-fit: contain;
-  width: 100%;
+  width: 40%;
   margin: 0 auto;
+}
+
+.firstSection__text {
+  margin-left: 3rem;
+}
+
+.firstSection__text h2 {
+  margin-bottom: 5rem;
 }
 
 /* .carousel-control-next-icon {
   background-image: url(https://image.flaticon.com/icons/png/512/130/130884.png) !important;
 } */
+
+.company__section {
+  /* background-color: #f2f2f2; */
+  padding: 5rem 0;
+}
+
+.company__title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
 
 .company__logo {
   width: 100%;
@@ -105,13 +121,246 @@
 .company_phone button {
   color: white;
   text-decoration: none;
-  margin-bottom: 5rem;
   font-size: 1rem;
   padding: 0.7rem 4rem;
   background-color: #313131;
   border-radius: 25px;
   border: none;
   text-transform: uppercase;
+}
+
+#company__form {
+  padding: 5rem 0;
+}
+
+#home-empresas .home {
+  height: calc(100vh - 128px);
+}
+#ayudarte,
+.home {
+  background-color: #f2f2f2;
+}
+
+#filas,
+#home__landing,
+.derecha,
+.izquierda {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  margin: 2rem 5rem 1rem 0;
+}
+
+.ilustracion-emp {
+  text-align: right;
+  display: grid;
+  place-items: center;
+}
+
+.ilustracion-emp img {
+  width: 80%;
+  padding-bottom: 4rem;
+}
+
+.texto_home {
+  padding-left: 5rem;
+  padding-top: 1rem;
+  text-align: end;
+  width: 40vw;
+}
+
+.texto_home #SemiBold {
+  font-size: 3.5rem !important;
+  margin-bottom: 0;
+  line-height: 0.9;
+}
+
+#home-empresas .botonprimero {
+  padding-top: 2rem;
+  text-align: end;
+}
+
+.solicita_prueba-emp img {
+  width: 70%;
+}
+
+#personas {
+  padding: 2rem 5rem;
+}
+
+#personas #SemiBold {
+  font-size: 2rem;
+}
+
+#test_cada_persona {
+  background-color: #f2f2f2;
+  padding-top: 4rem;
+  text-align: center;
+}
+
+#ayudarte #SemiBold,
+#en_que_momento #SemiBold,
+#test_cada_persona #SemiBold {
+  font-size: 2.5rem;
+  text-align: center;
+  padding-top: 4rem;
+  margin-bottom: 40px;
+}
+
+#filas img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+#filas {
+  align-items: center;
+}
+
+#filas .izquierda p,
+#filas .derecha p {
+  margin-left: 1rem;
+}
+
+#ayudarte div {
+  text-align: center;
+}
+
+#test_cada_persona .ilustraciones {
+  display: inline-flex;
+  margin: 0 6rem;
+}
+
+.columna img {
+  width: 60% !important;
+}
+
+#home-empresas .boton--producto {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+#home-empresas .descubre img {
+  width: 25% !important;
+  padding: 2rem 0 4rem;
+}
+#filas,
+#home__landingPage,
+.derecha,
+.izquierda {
+  display: inline-flex;
+  margin: 2rem 0;
+}
+#home-empresas .ayudarte .izquierda {
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+#en_que_momento .boton--producto,
+#en_que_momento .derecha,
+#en_que_momento .izquierda {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+#home-empresas .ayudarte .derecha {
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+#filas {
+  width: 100vw;
+}
+
+.derecha,
+.izquierda {
+  margin: auto;
+  width: 30vw !important;
+}
+
+#home-empresas .ayudarte #SemiBold {
+  font-size: 1.3rem;
+  padding: 0;
+  margin: 2rem;
+  text-align: center;
+}
+
+#en_que_momento .boton--producto,
+#en_que_momento .derecha,
+#en_que_momento .izquierda {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+#home-empresas .ayudarte #filas img {
+  width: 12% !important;
+  height: auto;
+}
+
+.descubretest img {
+  width: 20%;
+  margin-bottom: 4rem;
+}
+
+.logos,
+.stadistics {
+  width: 100%;
+  text-align: center;
+}
+
+.page_info {
+  text-align: center;
+}
+
+.block {
+  width: 16rem;
+  display: inline-block;
+  font-size: 2rem;
+}
+
+.map {
+  text-align: center;
+}
+
+.about__title #SemiBold {
+  font-size: 2.5rem;
+  text-align: center;
+  padding-top: 4rem;
+  margin-bottom: 40px;
+}
+
+.donde_estamos #SemiBold {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.mapa {
+  border: 0;
+  width: 100%;
+}
+
+.contacto-text {
+  display: inline-flex;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.office__contacto {
+  width: 100%;
+}
+
+.office__contacto,
+.office__place {
+  font-size: 12px;
+}
+
+#num a,
+.office__contacto a {
+  color: #000;
+  text-decoration: none;
 }
 
 /*CONTACTO*/
@@ -133,7 +382,7 @@
   grid-auto-rows: minmax(20px, auto);
 }
 
-.contact__form .form-line input {
+.reservas .contact__form .form-line input {
   background-color: #f7f7f7;
   background-size: cover;
   background-repeat: no-repeat;
@@ -150,12 +399,27 @@
 }
 
 .contact__form input::placeholder {
-  font-family: Montserrat;
+  font-family: Montserrat !important;
   font-size: 14px;
   padding-left: 1.5rem;
 }
 
 .contact__textarea {
+  width: 100%;
+  margin: 20px 0;
+  height: auto;
+  padding: 0;
+  padding-top: 1em;
+  resize: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #313131 !important;
+  border-radius: 20px !important;
+  font-family: Montserrat !important;
+}
+
+.reservas .contact__textarea {
   width: 100%;
   margin: 20px 0;
   height: auto;
@@ -172,14 +436,14 @@
 }
 
 textarea::placeholder {
-  font-family: Montserrat;
+  font-family: Montserrat !important;
   font-size: 0.89rem;
   padding-left: 1.5rem;
 }
 
 #pequeño {
   font-size: 10px;
-  font-family: Montserrat;
+  font-family: Montserrat !important;
 }
 
 #contact-form .hero_link {
@@ -215,7 +479,7 @@ textarea::placeholder {
   width: 100%;
 }
 .about__title {
-  font-family: "Montserrat Semi";
+  font-family: Montserrat Semi !important;
   font-size: 2.5rem;
   text-align: center;
 }
@@ -290,7 +554,577 @@ textarea::placeholder {
   width: 45%;
 }
 
+/* PAGES */
+
+.politicas__links {
+  min-height: calc(100vh - 180px);
+  padding-left: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.politicas__links a {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 2rem 0 2rem;
+}
+
+.hotel__modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+}
+
+.hotel__modalWrapper form {
+  width: 50vw;
+  height: 40vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotel__modalWrapper form select {
+  width: 60%;
+  border: none;
+  background-color: #e0e0e0;
+  padding: 1rem 2rem;
+  -webkit-border-radius: 25px;
+  box-sizing: content-box;
+  -webkit-appearance: none;
+  margin-bottom: 2rem;
+}
+
+.hotel__modalWrapper form button {
+  width: 60%;
+  border: none;
+  background-color: #979797;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+}
+
+@media (min-width: 576px) {
+  #article__destacadas h1 {
+    font-size: 2rem;
+    display: table-cell;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    position: absolute;
+    vertical-align: middle;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    visibility: hidden;
+  }
+}
+
+/* Reservas */
+
+.reservas {
+  font-family: Montserrat Semi !important;
+}
+
+.reservas .topnav .menu .carrito {
+  display: none;
+}
+
+.reservas__hero {
+  padding-top: 100px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.reservas__hero h1 {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 2.3em;
+  margin: 0 auto;
+}
+.reservas__calendario {
+  background-color: #f2f2f2;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-datepicker,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+  border: none !important;
+  background: none !important;
+  font-family: Montserrat !important;
+  font-weight: normal;
+  color: #f2f2f2;
+  font-size: 3rem !important;
+}
+
+.react-datepicker__month-container {
+  border: none !important;
+  background: #f2f2f2;
+  float: none !important;
+  font-size: 0.8em !important;
+  border-collapse: collapse;
+  line-height: 1.5 !important;
+}
+
+.react-datepicker__day--outside-month {
+  visibility: hidden !important;
+}
+
+.react-datepicker__day-name {
+  padding: 0;
+  margin: 1.7rem 1.5rem !important;
+  width: 4rem !important;
+  text-transform: uppercase;
+  color: #b7b1ae !important;
+  font-size: 0.7em;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  line-height: 1.5 !important;
+}
+
+.react-datepicker__header {
+  background: transparent !important;
+  border: none !important;
+}
+
+.react-datepicker__current-month {
+  padding-bottom: 30px;
+  color: #1a345b !important;
+  text-transform: uppercase;
+}
+
+.react-datepicker__day {
+  border-radius: 25px 25px 0 0;
+  margin: 0rem 1.5rem !important;
+  padding: 30px 3px 85px 3px;
+  width: 4rem !important;
+  height: 4rem;
+}
+
+.react-datepicker__day--selected {
+  border-radius: 5rem !important;
+  background-color: transparent !important;
+  font-family: Montserrat Semi !important;
+  background-image: url("../../assets/circuloHora.svg");
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+}
+
+.react-datepicker__day--keyboard-selected {
+  border-radius: 5rem !important;
+  background-color: transparent !important;
+  font-family: Montserrat Semi !important;
+  background-image: url("../../assets/circuloHora.svg");
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+}
+
+.react-datepicker__navigation {
+  border: none !important;
+}
+
+.react-datepicker__navigation--next {
+  background-image: url("../../assets/der.svg") !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  padding: 8px !important;
+  border: none;
+  top: 5%;
+  right: -15% !important;
+  height: 8px !important;
+}
+
+.react-datepicker__navigation--previous {
+  background-image: url("../../assets/izq.svg") !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  padding: 8px !important;
+  border: none !important;
+  top: 5%;
+  left: -15% !important;
+  height: 8px !important;
+}
+
+.react-datepicker__navigation-icon--next::before {
+  transform: rotate(45deg);
+  left: -7px;
+}
+.react-datepicker__navigation-icon::before,
+.react-datepicker__year-read-view--down-arrow,
+.react-datepicker__month-read-view--down-arrow,
+.react-datepicker__month-year-read-view--down-arrow {
+  content: none !important;
+}
+
+.react-datepicker table {
+  width: 70% !important;
+  font-size: 0.9em;
+  border-collapse: collapse;
+  margin: auto !important;
+  line-height: 2.6;
+}
+
+.react-datepicker-time__caption {
+  display: none !important;
+}
+
+.react-datepicker-time__input input {
+  border: none !important;
+  background-color: #f4f4f4 !important;
+  text-align: center;
+  padding: 30px;
+  font-size: 3em;
+}
+
+.calendarioR {
+  border: none;
+}
+
+.calendario__hora {
+  width: 25vw;
+  font-size: 4em;
+  font-weight: 400;
+  display: block;
+  margin: auto;
+  padding: 35px 0;
+  background-color: #eeeaea;
+}
+
+.calendario__hora_bloque {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendario__hora-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+
+.calendario__hora-nav p {
+  margin: 10px 0;
+}
+
+.calendario__hora-nav img {
+  width: 12%;
+}
+
+.reservas__formulario {
+  margin-bottom: 40px;
+}
+
+.reservas__formulario .form-line {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  grid-auto-rows: minmax(20px, auto);
+}
+
+.long {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.short {
+  grid-column: 3 / 3;
+  grid-row: 1;
+}
+
+.selectVuelo {
+  grid-column: 1 / 3;
+  grid-column-end: span 3;
+  grid-row: 1;
+}
+
+.siVuelo {
+  grid-column: 1 / 3;
+  grid-column-end: span 1;
+}
+
+.noVuelo {
+  display: none;
+}
+
+.inputVuelo {
+  grid-column: 2 / 3;
+  grid-column-end: span 2;
+  grid-row: 1;
+}
+
+.form-line-select {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+  grid-auto-rows: minmax(20px, auto);
+}
+.select1 {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.select2 {
+  grid-column: 2 / 2;
+  grid-row: 1;
+}
+
+.half-long {
+  grid-row: 1;
+}
+
+.half-long2 {
+  grid-column: 2 / 3;
+  grid-row: 1;
+}
+
+.domicilio {
+  grid-column: 1 / 3;
+  grid-column-end: span 3;
+  grid-row: 1;
+  margin-bottom: 70px;
+}
+
+.formgroup-hidden {
+  visibility: hidden;
+}
+
+.hour-none {
+  display: none;
+}
+
+.reservas_checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.reservas_checkbox p {
+  margin: 0 10px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.reservas_checkbox_texto {
+  width: 250px;
+}
+
+.round-input {
+  border-radius: 50px;
+}
+
+.round-input-textarea {
+  border-radius: 30px;
+}
+
+.reservas__formulario .form-group input {
+  width: 100%;
+  margin: 1rem auto;
+  margin-bottom: 0;
+  border: 0;
+  background-color: #f7f7f7;
+  color: #979797;
+  height: 3em;
+  padding-left: 1.5rem;
+  -webkit-border-radius: 50px;
+  box-sizing: content-box;
+  -webkit-appearance: none;
+  font-family: Montserrat !important;
+  line-height: 1rem;
+}
+
+.form-control-select {
+  width: 100%;
+  margin: 1rem auto;
+  margin-bottom: 0;
+  border: 0;
+  background-color: #f7f7f7;
+  color: #979797;
+  height: 3em;
+  padding-left: 1.5rem;
+  -webkit-border-radius: 50px;
+  box-sizing: content-box;
+  -webkit-appearance: none;
+  font-family: Montserrat !important;
+  line-height: 1rem;
+}
+
+.btn__reservas {
+  text-align: center;
+  display: block;
+  margin: 50px auto 20px auto;
+  border-radius: 50px;
+  border: none;
+  font-size: 0.95em;
+  font-weight: bold;
+  color: white;
+  background-color: #7da1b0;
+}
+
+.btn__dark {
+  background-color: #323137;
+  width: 412px;
+  height: 40px;
+  margin: 20px auto 120px auto;
+}
+
+.btn__reservas div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 400px;
+  height: 40px;
+}
+
+.btn__reservas div p {
+  margin: auto;
+}
+
+.contact__form h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 1.9em;
+}
+
+.reservas__dondeEstamos {
+  background-color: #323137;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 50px;
+  color: white;
+}
+
+.reservas__dondeEstamos h2 {
+  margin: 20px 0;
+  font-size: 2.5rem;
+}
+
+.reservas__dondeEstamos iframe {
+  width: 50%;
+  height: 250px;
+  margin: 20px 0;
+}
+
+.reservas__dondeEstamos p {
+  margin-bottom: 40px;
+}
+
+.Toastify__toast--default {
+  color: black !important;
+}
+
+#num {
+  font-size: 1.5rem;
+}
+#num a,
+.office__contacto a {
+  color: black;
+  text-decoration: none;
+}
+
+#contacto {
+  margin: 0 10rem;
+}
+
+#contacta-con-nosotros {
+  text-align: center;
+  background-color: #f2f2f2;
+  width: 100vw;
+  padding: 2rem 0;
+  font-size: 2.5rem;
+  padding-bottom: 0.5rem;
+  line-height: 0.7;
+}
+
+#contacta-con-nosotros p {
+  margin: revert;
+}
+
+#contacto .botones {
+  bottom: 0;
+  position: relative;
+}
+#contacto input::placeholder {
+  font-family: Montserrat !important;
+  font-size: 14px;
+}
+#contacto .form-group input {
+  width: 85%;
+  margin: 1rem 0;
+  height: 3em;
+  margin-bottom: 0;
+  text-align: left;
+  padding-left: 1.5rem;
+  line-height: 1rem;
+}
+
+.contact__text img {
+  width: 1.5rem;
+  text-align: center;
+}
+.contact__text {
+  text-align: center;
+}
+.contact__text p {
+  margin: 4rem 0 1rem 0;
+  font-size: 16px;
+  font-family: Montserrat Semi !important;
+}
+
+#contacto .hero_link {
+  width: 40%;
+  padding: 0.8rem;
+  color: white;
+  text-decoration: none;
+  margin-left: 0rem;
+  background-color: transparent;
+  border: none;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 765px) and (max-width: 1367px) {
+  .mockup__img {
+    height: auto;
+    width: 100%;
+    display: block;
+    margin: 1rem auto;
+  }
+
+  .social__menu {
+    width: 85%;
+    margin: 2rem auto;
+  }
+}
+
 @media (max-width: 575px) {
+  .bs {
+    display: none !important;
+  }
+  .ss {
+    display: grid;
+  }
   .articleSection {
     margin-bottom: 3rem;
   }
@@ -302,27 +1136,20 @@ textarea::placeholder {
     height: 30vh;
     margin: 1.5rem 3rem;
     background-size: cover;
+    background-position: 50% 30%;
   }
 
   #article__destacadas h1 {
-    position: absolute;
-    vertical-align: middle;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0;
-    line-height: 1;
-    text-transform: uppercase;
-    visibility: initial;
     text-align: center;
     margin-top: 10px;
     width: 380px;
-    font-family: "Montserrat Semi";
+    padding-left: 10px;
+    font-family: Montserrat Semi !important;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   #about__us {
@@ -387,14 +1214,268 @@ textarea::placeholder {
     width: 70%;
   }
 
+  #company__form {
+    padding: 5rem 1rem;
+  }
+
   .contact__form .form-line input {
     margin-top: 0;
   }
 
-  .contact__form .form-line {
+  .reservas__hero .contact__form .form-line {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    grid-gap: 0px;
     grid-auto-rows: minmax(20px, auto);
+  }
+
+  .company__section {
+    /* background-color: #f2f2f2; */
+    padding: 5rem 2rem;
+  }
+
+  .company_phone button {
+    padding: 0.7rem 2rem;
+    margin-top: 2rem;
+  }
+
+  /* EMPRESAS */
+
+  #home-empresas .home {
+    height: calc(100vh - 60px);
+  }
+
+  #home__landing {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 2rem 0;
+  }
+
+  .texto_home {
+    padding-left: 1rem;
+    width: 95vw;
+    text-align: center;
+  }
+
+  .texto_home #SemiBold {
+    font-size: 2.5rem;
+  }
+
+  #home__landing .botonprimero {
+    text-align: center;
+  }
+
+  #ayudarte #SemiBold,
+  #en_que_momento #SemiBold,
+  #test_cada_persona #SemiBold {
+    font-size: 2rem;
+  }
+
+  .solicita_prueba-emp img {
+    width: 80%;
+  }
+
+  #test_cada_persona .ilustraciones {
+    margin: 0 2rem;
+  }
+
+  #test_cada_persona .columna img {
+    margin-top: 2rem;
+  }
+
+  #home-empresas .descubre img {
+    width: 80% !important;
+  }
+
+  #filas,
+  #home__landingPage,
+  .derecha,
+  .izquierda {
+    flex-direction: column;
+    margin: 0;
+    width: 100vw !important;
+    height: auto;
+  }
+
+  .descubretest img {
+    width: 80% !important;
+  }
+
+  #contacto {
+    margin: 0 2rem;
+  }
+
+  #product__page .hero_link,
+  .boton--producto .hero_buy,
+  #contacto .hero_link {
+    padding: 1rem 4rem;
+  }
+
+  /* RESERVAS */
+
+  .reservas__hero h1 {
+    font-size: 1.5em;
+  }
+
+  .reservas__calendario {
+    width: 100%;
+    padding: 30px;
+  }
+
+  .react-datepicker {
+    font-size: 2rem !important;
+  }
+
+  .react-datepicker__navigation--next {
+    padding: 6px !important;
+    right: 3% !important;
+  }
+
+  .react-datepicker__navigation--previous {
+    padding: 6px !important;
+    left: 3% !important;
+  }
+  .react-datepicker__day {
+    margin: 0rem 1rem !important;
+    padding: 20px 2px 0px 2px;
+    width: 0.5rem !important;
+    height: 1rem;
+  }
+
+  .react-datepicker__day-name {
+    padding: 0;
+    margin: 1rem 1rem !important;
+    width: 0.5rem !important;
+    text-transform: uppercase;
+    color: #b7b1ae !important;
+    font-size: 0.7em;
+  }
+
+  .react-datepicker__day,
+  .react-datepicker__day-name {
+    width: 0.5rem !important;
+  }
+
+  .calendario__hora {
+    width: 50vw !important;
+    font-size: 2.5em !important;
+    padding: 25px 0 !important;
+  }
+
+  .reservas__hero .form-line {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0px;
+    grid-auto-rows: minmax(20px, auto);
+  }
+
+  .long {
+    grid-column: 1 / 3;
+    grid-column-end: span 3;
+    grid-row: 1;
+  }
+
+  .short {
+    grid-column: 1 / 3;
+    grid-column-end: span 3;
+    grid-row: 2;
+  }
+
+  .selectVuelo {
+    grid-column: 1 / 3;
+    grid-column-end: span 3;
+    grid-row: 1;
+  }
+
+  .siVuelo {
+    grid-column: 1 / 3;
+    grid-column-end: span 3;
+  }
+
+  .domicilio {
+    grid-column: 1 / 3;
+    grid-column-end: span 3;
+    grid-row: 1;
+  }
+
+  .noVuelo {
+    display: none;
+  }
+
+  .inputVuelo {
+    grid-column: 1 / 3;
+    grid-column-end: span 3;
+    grid-row: 2;
+  }
+
+  .reservas__formulario .form-line {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0px;
+    grid-auto-rows: minmax(20px, auto);
+    width: 100%;
+  }
+
+  .reservas__formulario .form-group input {
+    padding: 0;
+  }
+
+  .form-line-select {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0px;
+    grid-auto-rows: minmax(20px, auto);
+    width: 100%;
+  }
+  .select1 {
+    grid-column: 1 / 2;
+    grid-column-end: span 2;
+    grid-row: 1;
+  }
+
+  .select2 {
+    grid-column: 1 / 2;
+    grid-column-end: span 2;
+    grid-row: 2;
+  }
+
+  .half-long {
+    grid-column: 1 / 3;
+    grid-column-end: span 3;
+    grid-row: 1;
+  }
+  .half-long2 {
+    grid-column: 1 / 3;
+    grid-column-end: span 3;
+    grid-row: 3;
+  }
+
+  .btn__dark {
+    width: 100%;
+  }
+
+  .btn__reservas {
+    width: 100%;
+  }
+
+  .btn__reservas div {
+    width: 100%;
+  }
+
+  .reservas__dondeEstamos iframe {
+    width: 80%;
+    height: 200px;
+  }
+
+  #contacto .hero_link {
+    width: 100%;
+  }
+
+  .reservas__dondeEstamos {
+    text-align: center;
+  }
+
+  #contacto .form-group input {
+    width: 100%;
   }
 }

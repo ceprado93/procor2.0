@@ -6,8 +6,7 @@ import "./Shared.css";
 import { ShopContext } from "../../context/shopContext";
 
 const Cart = () => {
-  const { isCartOpen, closeCart, checkout, deleteItemFromCheckout, products, addItemToCheckout, fetchAllProducts } =
-    useContext(ShopContext);
+  const { isCartOpen, closeCart, checkout, deleteItemFromCheckout, products, addItemToCheckout, fetchAllProducts } = useContext(ShopContext);
   let [quan, setQuan] = useState(1);
 
   useLayoutEffect(() => {
@@ -78,10 +77,7 @@ const Cart = () => {
                     checkout.lineItems.map((item, idx) => (
                       <Row key={item.id} className="cart__line">
                         <Col>
-                          <div
-                            className="cart__productImg"
-                            style={{ backgroundImage: `url(${item.variant.image.src})` }}
-                          />
+                          <div className="cart__productImg" style={{ backgroundImage: `url(${item.variant.image.src})` }} />
                         </Col>
                         <Col>
                           <p>{item.title}</p>

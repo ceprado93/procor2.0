@@ -92,6 +92,12 @@
   border-radius: 25px;
 }
 
+.cart__finalButton button:active {
+  background-color: #71867f;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 @media (max-width: 980px) {
   #cart__page {
     width: 45vw;

@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 import axios from "axios";
 
 const BlogDetalles = (props) => {
@@ -26,21 +26,29 @@ const BlogDetalles = (props) => {
   }
 
   return (
-    <Container>
-      <div id="blogs">
-        <div id="politicas__detalles">
-          <section>
-            <div id="fotoblog">
-              <img id="hoyozero" src={posts?.featured_image} alt="post__image" />
+    <>
+      {posts ? (
+        <Container>
+          <div id="blogs">
+            <div id="politicas__detalles">
+              <section>
+                <div id="fotoblog">
+                  <img id="hoyozero" src={posts?.featured_image} alt="post__image" />
+                </div>
+                <p id="SemiBold" className="titulo">
+                  {posts?.title}
+                </p>
+              </section>
+              <section dangerouslySetInnerHTML={createMarkup()} className="blog__text"></section>
             </div>
-            <p id="SemiBold" className="titulo">
-              {posts?.title}
-            </p>
-          </section>
-          <section dangerouslySetInnerHTML={createMarkup()} className="blog__text"></section>
+          </div>
+        </Container>
+      ) : (
+        <div className="noPosts">
+          <Spinner animation="border" />
         </div>
-      </div>
-    </Container>
+      )}
+    </>
   );
 };
 

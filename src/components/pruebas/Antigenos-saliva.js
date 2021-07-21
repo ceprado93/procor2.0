@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useLayoutEffect } from "react";
+import React, { useEffect, useContext, useLayoutEffect, useState } from "react";
 import Flecha from "../../assets/Flecha.png";
 import Casa from "../../assets/casa.png";
 import Reloj from "../../assets/reloj.png";
@@ -12,21 +12,56 @@ const AntigenosSaliva = () => {
   let { id } = useParams();
   const { fetchProductWithId, addItemToCheckout, product, openCart } = useContext(ShopContext);
 
+  const [qtyModal, setqtyModal] = useState(false);
+  const [comprar, setComprar] = useState(false);
+
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    fetchProductWithId("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY3MTMwNDEzMjIxNjc=");
-    return () => {};
+    // fetchProductWithId("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY3MTMwNDEzMjIxNjc=");
   }, [fetchProductWithId, id]);
+
+  const openQTYModal = () => {
+    setqtyModal(true);
+  };
+
+  async function selectQty(e) {
+    console.log(e.target.value);
+    if (e.target.value === "1ud -- 25€") await fetchProductWithId("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY3MTMwNDEzMjIxNjc=");
+    else if (e.target.value === "3ud -- 67,5€") await fetchProductWithId("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY4ODY3NzUyOTIwODc=");
+    else if (e.target.value === "5ud -- 99€") await fetchProductWithId("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY4ODY3NzY0MDYxOTk=");
+    else if (e.target.value === "10ud -- 185€") await fetchProductWithId("Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0LzY4ODY3Nzc0NTQ3NzU=");
+
+    setComprar(true);
+  }
 
   function click(event) {
     addItemToCheckout(product.variants[0].id, 1);
     openCart();
+    setqtyModal(false);
   }
   return (
     <div id="product__page" className="antigenosSaliva__page-product">
+      {qtyModal && (
+        <div className="qty__modal">
+          <div className="qty__form">
+            <select className="form-control-select" onChange={selectQty} style={{ width: "80%" }}>
+              <option>Seleccione cantidad</option>
+              <option>1ud -- 25€</option>
+              <option>3ud -- 67,5€</option>
+              <option>5ud -- 99€</option>
+              <option>10ud -- 185€</option>
+            </select>
+            {comprar && (
+              <button className="hero_link" onClick={() => click()}>
+                Comprar
+              </button>
+            )}
+          </div>
+        </div>
+      )}
       <section className="product__title">
         <p className="hero_heading">
           <strong> Antígenos </strong> de saliva
@@ -63,14 +98,10 @@ const AntigenosSaliva = () => {
         </div>
       </section>
       <section className="small__text">
-        <p>
-          Se recomienda cuando sabemos la fecha del contacto y si presenta algún síntoma. Su sensibilidad es baja en
-          asintomáticos.
-        </p>
+        <p>Se recomienda cuando sabemos la fecha del contacto y si presenta algún síntoma. Su sensibilidad es baja en asintomáticos.</p>
         <p style={{ marginBottom: "5rem" }}>
-          Detecta proteína Ag, una proteína que hace de puente entre las células de nuestro cuerpo y el virus. Una vez
-          que se ha producido esta fusión, nuestro cuerpo elimina la proteína, por eso su marco de efectividad es tan
-          concreto.
+          Detecta proteína Ag, una proteína que hace de puente entre las células de nuestro cuerpo y el virus. Una vez que se ha producido esta fusión, nuestro cuerpo elimina la proteína, por eso su
+          marco de efectividad es tan concreto.
         </p>
       </section>
       <section className="fixed--btn">
@@ -78,7 +109,7 @@ const AntigenosSaliva = () => {
           25€
         </p>
         <div className=" boton--producto" style={{ paddingTop: "0rem" }}>
-          <button onClick={click} className="hero_link">
+          <button onClick={() => openQTYModal()} className="hero_link">
             COMPRAR AHORA
           </button>
         </div>
