@@ -61,7 +61,7 @@ const Cart = () => {
             <div className="cart__header">
               <p>Carrito</p>
               <div onClick={() => closeCart()}>
-                <p style={{ fontSize: 20 }}>x</p>
+                <p style={{ fontSize: 20, cursor: "pointer" }}>x</p>
               </div>
             </div>
             <div className="cart_main">

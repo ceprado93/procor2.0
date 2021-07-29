@@ -19,28 +19,23 @@ registerLocale("es", es);
 const Reservas = () => {
   const [dataForm, setDataForm] = useState({
     horareserva: "",
-    name: "",
-    lastName: "",
-    nacimiento: "",
-    phone: "",
-    email: "",
-    dni: "",
-    sintomas: "",
-    contacto: "",
-    vuelo: "",
-    prueba: "",
-    lugar: "",
-    domicilio: "",
   });
   const [startDate, setStartDate] = useState(new Date());
   const [yesterday, setYesterday] = useState(new Date());
   const [hour, setHour] = useState(9);
+  const [currentHour, setCurrenthour] = useState(new Date().getHours());
+
   const [minute, setMinute] = useState(3);
   const [oddminute, setOdd] = useState(true);
   const [minute2, setMinute2] = useState(0);
   const [minute3, setMinute3] = useState(0);
   const [show, setShow] = useState(true);
   const [showAlert, setShowAlert] = useState(false);
+  const [propsReserva, setHoraReserva] = useState({
+    hora: hour,
+    minuto: minute,
+    dia: startDate,
+  });
 
   const [numForms, setNumForms] = useState(1);
 
@@ -56,15 +51,73 @@ const Reservas = () => {
     initialHour();
   }, [startDate]);
 
+  useEffect(() => {
+    const dia = startDate.toString();
+    const diacorto = dia.substr(0, 15);
+    setDataForm((dataForm) => {
+      return {
+        ...dataForm,
+        diareserva1: diacorto,
+      };
+    });
+  }, [dataForm.horareserva1]);
+
+  useEffect(() => {
+    initialHour();
+  }, [startDate]);
+
+  useEffect(() => {
+    let date = new Date();
+    let currentHour = date.getHours();
+    const newHour = currentHour + 2;
+    dataForm.lugar1 === "DOMICILIO" && currentHour + 2 > hour && setHour(newHour);
+  }, [dataForm.lugar1]);
+
   function initialHour() {
     let string = startDate.toString();
     if (string.includes("Sat") || string.includes("Sun")) {
-      setHour(10);
+      setHour(11);
     }
+  }
+
+  function loadDate(e) {
+    e.preventDefault();
+
+    let dateWithTime;
+    if (!oddminute) {
+      dateWithTime = hour + "h" + minute + 0;
+    } else if (oddminute) {
+      dateWithTime = hour + "h" + minute + 5;
+    }
+    setDataForm((dataForm) => {
+      return {
+        ...dataForm,
+        horareserva1: dateWithTime,
+      };
+    });
   }
 
   function handleHide() {
     setShow(false);
+  }
+
+  async function handleNewBooking(e) {
+    e.preventDefault();
+
+    const cargaUtil = JSON.stringify(dataForm);
+
+    const respuesta = await fetch(`https://nuevo.procorlab.es/citas.php`, {
+      method: "POST",
+      body: cargaUtil,
+    });
+
+    const exitoso = await respuesta.json();
+    if (exitoso) {
+      console.log(exitoso);
+      sendEmailReserva(e);
+    } else {
+      console.log("error");
+    }
   }
 
   function sendEmailReserva(e) {
@@ -92,7 +145,10 @@ const Reservas = () => {
         console.log(error.text);
       }
     );
+
     e.target.reset();
+    notify();
+    setShowAlert(true);
   }
 
   function notify() {
@@ -140,8 +196,8 @@ const Reservas = () => {
     let string = startDate.toString();
 
     if (string.includes("Sat") || string.includes("Sun")) {
-      if (hour <= 10) {
-        setHour(10);
+      if (hour <= 11) {
+        setHour(11);
       } else {
         const newhour = hour - 1;
         setHour(newhour);
@@ -225,8 +281,8 @@ const Reservas = () => {
   function substractMinute() {
     let string = startDate.toString();
     if (string.includes("Sat") || string.includes("Sun")) {
-      if (hour < 10 || (hour === 10 && minute < 4)) {
-        setHour(10);
+      if (hour < 11 || (hour === 11 && minute < 4)) {
+        setHour(11);
         setMinute(3);
       } else if (minute > 0) {
         const newMinute = minute - 1;
@@ -303,7 +359,7 @@ const Reservas = () => {
           <section className="contact__form">
             {numForms === 1 ? (
               <>
-                <form id="contact-form" onSubmit={sendEmailReserva}>
+                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -325,6 +381,9 @@ const Reservas = () => {
                     lugar="lugar1"
                     domicilio="domicilio1"
                   />
+                  {dataForm.lugar1 === "DOMICILIO" && currentHour + 3 > hour && (
+                    <p className="aviso__domicilio">Al haber solicitado el servicio a domicilio, su hora de reserva se ha aumentado en 2h.</p>
+                  )}
                   <button className="btn__reservas" onClick={() => añadirReserva(2)}>
                     <div>
                       <p>AÑADIR A OTRA PERSONA</p>
@@ -339,7 +398,7 @@ const Reservas = () => {
               </>
             ) : numForms === 2 ? (
               <>
-                <form id="contact-form" onSubmit={sendEmailReserva}>
+                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -382,6 +441,9 @@ const Reservas = () => {
                     lugar="lugar2"
                     domicilio="domicilio2"
                   />
+                  {dataForm.lugar1 === "DOMICILIO" && currentHour + 2 > hour && (
+                    <p className="aviso__domicilio">Al haber solicitado el servicio a domicilio, su hora de reserva se ha aumentado en 2h.</p>
+                  )}
                   <button className="btn__reservas" onClick={() => añadirReserva(3)}>
                     <div>
                       <p>AÑADIR A OTRA PERSONA</p>
@@ -396,7 +458,7 @@ const Reservas = () => {
               </>
             ) : numForms === 3 ? (
               <>
-                <form id="contact-form" onSubmit={sendEmailReserva}>
+                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -460,6 +522,9 @@ const Reservas = () => {
                     lugar="lugar3"
                     domicilio="domicilio3"
                   />
+                  {dataForm.lugar1 === "DOMICILIO" && currentHour + 2 > hour && (
+                    <p className="aviso__domicilio">Al haber solicitado el servicio a domicilio, su hora de reserva se ha aumentado en 2h.</p>
+                  )}
                   <button className="btn__reservas" onClick={() => añadirReserva(4)}>
                     <div>
                       <p>AÑADIR A OTRA PERSONA</p>
@@ -474,7 +539,7 @@ const Reservas = () => {
               </>
             ) : numForms === 4 ? (
               <>
-                <form id="contact-form" onSubmit={sendEmailReserva}>
+                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -558,6 +623,9 @@ const Reservas = () => {
                     lugar="lugar4"
                     domicilio="domicilio4"
                   />
+                  {dataForm.lugar1 === "DOMICILIO" && currentHour + 2 > hour && (
+                    <p className="aviso__domicilio">Al haber solicitado el servicio a domicilio, su hora de reserva se ha aumentado en 2h.</p>
+                  )}
                   <button className="btn__reservas" onClick={() => añadirReserva(5)}>
                     <div>
                       <p>AÑADIR A OTRA PERSONA</p>
@@ -572,7 +640,7 @@ const Reservas = () => {
               </>
             ) : (
               <>
-                <form id="contact-form" onSubmit={sendEmailReserva}>
+                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -677,6 +745,10 @@ const Reservas = () => {
                     lugar="lugar5"
                     domicilio="domicilio5"
                   />
+                  {dataForm.lugar1 === "DOMICILIO" && currentHour + 2 > hour && (
+                    <p className="aviso__domicilio">Al haber solicitado el servicio a domicilio, su hora de reserva se ha aumentado en 2h.</p>
+                  )}
+
                   <button className="btn__reservas" onClick={() => añadirReserva(5)}>
                     <div>
                       <p>AÑADIR A OTRA PERSONA</p>

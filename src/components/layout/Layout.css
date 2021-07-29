@@ -115,6 +115,11 @@ footer a {
     padding: 3rem;
   }
 
+  .menuButton__close {
+    top: 2rem;
+    left: 1rem;
+  }
+
   footer {
     padding: 1rem 3rem;
   }

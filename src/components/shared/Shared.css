@@ -98,6 +98,12 @@
   transform: translateY(4px);
 }
 
+.aviso__domicilio {
+  padding-left: 1rem;
+  color: red;
+  text-align: center;
+}
+
 @media (max-width: 980px) {
   #cart__page {
     width: 45vw;

@@ -47,11 +47,11 @@ const Navigation = () => {
             <Link to="/tienda" id="SemiBold" onClick={() => toogleMenu()}>
               Nuestro e-commerce
             </Link>
-            <Link to="/empresa-evento" id="SemiBold" onClick={() => toogleMenu()}>
-              Soy una empresa / evento
-            </Link>
             <Link to="/info-covid" id="SemiBold" onClick={() => toogleMenu()}>
               Info COVID
+            </Link>
+            <Link to="/empresa-evento" id="SemiBold" onClick={() => toogleMenu()}>
+              Soy una empresa / evento
             </Link>
             <Link to="/redes" id="SemiBold" onClick={() => toogleMenu()}>
               Redes Procor

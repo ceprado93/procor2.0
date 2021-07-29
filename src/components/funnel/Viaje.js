@@ -34,21 +34,8 @@ const Viaje = () => {
 
   const [filled, setFilled] = useState({ place: false, date: false, type: false });
   const [newBooking, setNewBooking] = useState({
-    name: undefined,
-    birth: undefined,
-    phone: undefined,
-    mail: undefined,
-    dni: undefined,
-    symptoms: undefined,
-    contact: undefined,
     destination: undefined,
     fligthDate: undefined,
-    type: undefined,
-    test: undefined,
-    place: undefined,
-    met: undefined,
-    postal: undefined,
-    testDate: "",
   });
   const [size, setSize] = useState(false);
 
@@ -72,7 +59,7 @@ const Viaje = () => {
       ? setNewBooking((newBooking) => {
           return {
             ...newBooking,
-            test: "Antigenos de saliva",
+            test: "Antigenos",
           };
         })
       : setNewBooking((newBooking) => {
@@ -194,12 +181,32 @@ const Viaje = () => {
     newBooking.place && newBooking.place2 && newBooking.met && newBooking.name && newBooking.birth && newBooking.mail && newBooking.phone && newBooking.dni ? setThirdScreen(true) : setAlert(true);
   };
 
+  async function handleNewBooking(e) {
+    e.preventDefault();
+
+    const cargaUtil = JSON.stringify(newBooking);
+
+    const respuesta = await fetch(`https://nuevo.procorlab.es/prueba.php`, {
+      method: "POST",
+      body: cargaUtil,
+    });
+
+    const exitoso = await respuesta.json();
+    if (exitoso) {
+      console.log(exitoso);
+    } else {
+      console.log("error");
+    }
+    sendEmail(e);
+  }
+
   function sendEmail(e) {
     e.preventDefault();
 
     emailjs.send("service_ms36otd", "template_4afiukh", newBooking, "user_29SCJ5tSmyhfUETa03XNu").then(
       (result) => {
         console.log(result.text);
+        setThanks(true);
       },
       (error) => {
         console.log(error.text);
@@ -320,37 +327,6 @@ const Viaje = () => {
         const newMinute = minute - 1;
         setMinute(newMinute);
       }
-    }
-  }
-
-  async function handleNewBooking(e) {
-    // e.preventDefault();
-    // console.log(e.target.value);
-    // bookingService
-    //   .saveBooking(newBooking)
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     setThanks(true);
-    //   })
-    //   .catch((err) => console.log(err));
-    // Codificar nuestro videojuego como JSON
-    const cargaUtil = JSON.stringify(newBooking);
-
-    // ¡Y enviarlo!
-    // const respuesta = await fetch(`https://nuevo.procorlab.es/prueba.php`, {
-    //   method: "POST",
-    //   body: cargaUtil,
-    // });
-
-    const respuesta = await fetch(`https://nuevo.procorlab.es/prueba.php`);
-
-    const exitoso = await respuesta.json();
-    if (exitoso) {
-      console.log(exitoso);
-
-      setThanks(true);
-    } else {
-      console.log("error");
     }
   }
 
@@ -747,6 +723,7 @@ const Viaje = () => {
             <label>FECHA DEL VUELO (DD/MM/AA)</label>
             <input
               type="date"
+              className=" safari_only"
               // onChange={(e) => selectDate(e)}
               onChange={(e) =>
                 setNewBooking((newBooking) => {
@@ -773,7 +750,7 @@ const Viaje = () => {
         newBooking.destination === "Luxemburgo" ? (
           <>
             <div>
-              <h2 id="SemiBold">Antigenos de saliva</h2>
+              <h2 id="SemiBold">Antigenos</h2>
               <p>Creemos que este test es perfecto para ti</p>
             </div>
             <img className="test__img" src={antigenosSaliva} alt="test" />
@@ -804,7 +781,7 @@ const Viaje = () => {
           <button className={showFinalModal ? "closeFinal__btn" : ""} onClick={() => setShowFinalModal(false)}>
             X
           </button>
-          <form className={thanks ? "hide" : ""} onSubmit={(e) => sendEmail(e)}>
+          <form className={thanks ? "hide" : ""} onSubmit={(e) => handleNewBooking(e)}>
             {/* <form className={thanks ? "hide" : ""} onSubmit={(e) => handleNewBooking(e)}> */}
             <input type="text" name="place" value={place} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />
             <input type="text" name="date" value={date} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />
@@ -830,7 +807,7 @@ const Viaje = () => {
                     newBooking.destination === "Italia" ||
                     newBooking.destination === "Perù" ||
                     newBooking.destination === "Luxemburgo"
-                      ? "Antigenos de saliva"
+                      ? "Antigenos"
                       : "Pcr saliva"
                   }
                 />

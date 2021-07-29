@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 
 const ReservasForm = (props) => {
   const [fechaReserva, setFechaReserva] = useState();
@@ -47,79 +47,29 @@ const ReservasForm = (props) => {
   return (
     <>
       <div className="form-group" style={{ visibility: "hidden" }}>
-        <input
-          type="text"
-          className="form-control round-input"
-          placeholder="HORA RESERVA"
-          name={props.horareserva}
-          value={fechaReserva}
-          onChange={handleInputChange}
-          required
-        />
+        <input type="text" className="form-control round-input" placeholder="HORA RESERVA" name={props.horareserva} value={fechaReserva} onChange={handleInputChange} required />
       </div>
       <div className="form-line">
         <div className="form-group half-long">
-          <input
-            type="text"
-            className="form-control round-input"
-            placeholder="NOMBRE"
-            name={props.name}
-            onChange={handleInputChange}
-            required
-          />
+          <input type="text" className="form-control round-input" placeholder="NOMBRE" name={props.name} onChange={handleInputChange} required />
         </div>
         <div className="form-group half-long2">
-          <input
-            type="text"
-            className="form-control round-input"
-            placeholder="APELLIDOS"
-            name={props.lastName}
-            onChange={handleInputChange}
-            required
-          />
+          <input type="text" className="form-control round-input" placeholder="APELLIDOS" name={props.lastName} onChange={handleInputChange} required />
         </div>
 
         <div className="form-group short">
-          <input
-            type="text"
-            className="form-control round-input"
-            placeholder="FECHA DE NACIMIENTO"
-            name={props.nacimiento}
-            onChange={handleInputChange}
-            required
-          />
+          <input type="text" className="form-control round-input" placeholder="FECHA DE NACIMIENTO" name={props.nacimiento} onChange={handleInputChange} required />
         </div>
       </div>
       <div className="form-line">
         <div className="form-group half-long">
-          <input
-            type="text"
-            className="form-control round-input"
-            placeholder="TELEFONO DE CONTACTO"
-            name={props.phone}
-            onChange={handleInputChange}
-            required
-          />
+          <input type="text" className="form-control round-input" placeholder="TELEFONO DE CONTACTO" name={props.phone} onChange={handleInputChange} required />
         </div>
         <div className="form-group half-long2">
-          <input
-            type="email"
-            className="form-control round-input"
-            placeholder="EMAIL"
-            name={props.email}
-            onChange={handleInputChange}
-            required
-          />
+          <input type="email" className="form-control round-input" placeholder="EMAIL" name={props.email} onChange={handleInputChange} required />
         </div>
         <div className="form-group short">
-          <input
-            type="text"
-            className="form-control round-input"
-            placeholder="DNI"
-            name={props.dni}
-            onChange={handleInputChange}
-            required
-          />
+          <input type="text" className="form-control round-input" placeholder="DNI" name={props.dni} onChange={handleInputChange} required />
         </div>
       </div>
       <div className="form-line-select">
@@ -147,13 +97,7 @@ const ReservasForm = (props) => {
           </select>
         </div>
         <div className={vuelo === "SI" ? "form-group inputVuelo" : "form-group noVuelo "}>
-          <input
-            type="text"
-            className="form-control round-input"
-            placeholder="FECHA DEL VUELO (dd/mm/aaaa)"
-            name={props.vuelo}
-            onChange={handleInputChange}
-          />
+          <input type="text" className="form-control round-input" placeholder="FECHA DEL VUELO (dd/mm/aaaa)" name={props.vuelo} onChange={handleInputChange} />
         </div>
       </div>
       <div className="form-line-select">
@@ -176,15 +120,9 @@ const ReservasForm = (props) => {
         </div>
       </div>
       <div className="form-line">
-        <div
-          className={domicilio === "CLÍNICA" || domicilio === "DOMICILIO" ? "form-group domicilio" : "formgroup-hidden"}
-        >
+        <div className={domicilio === "CLÍNICA" || domicilio === "DOMICILIO" ? "form-group domicilio" : "formgroup-hidden"}>
           <input
-            value={
-              domicilio === "CLÍNICA"
-                ? "Avda. de la Industria, 4. Edificio 1, Portal 2, Plata 2. Alcobendas"
-                : undefined
-            }
+            value={domicilio === "CLÍNICA" ? "Avda. de la Industria, 4. Edificio 1, Portal 2, Plata 2. Alcobendas" : undefined}
             type="text"
             className="form-control round-input"
             placeholder="DIRECCIÓN DE DOMICILIO"

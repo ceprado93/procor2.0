@@ -189,18 +189,37 @@ const Viaje = () => {
     newBooking.place && newBooking.place2 && newBooking.met && newBooking.name && newBooking.birth && newBooking.mail && newBooking.phone && newBooking.dni ? setThirdScreen(true) : setAlert(true);
   };
 
+  async function handleNewBooking(e) {
+    e.preventDefault();
+
+    const cargaUtil = JSON.stringify(newBooking);
+
+    const respuesta = await fetch(`https://nuevo.procorlab.es/prueba.php`, {
+      method: "POST",
+      body: cargaUtil,
+    });
+
+    const exitoso = await respuesta.json();
+    if (exitoso) {
+      console.log(exitoso);
+      sendEmail(e);
+    } else {
+      console.log("error");
+    }
+  }
+
   function sendEmail(e) {
     e.preventDefault();
 
     emailjs.send("service_ms36otd", "template_8u35ma8", newBooking, "user_29SCJ5tSmyhfUETa03XNu").then(
       (result) => {
         console.log(result.text);
+        setThanks(true);
       },
       (error) => {
         console.log(error.text);
       }
     );
-    setThanks(true);
   }
 
   function addHour() {
@@ -834,15 +853,11 @@ const Viaje = () => {
           <button className={showFinalModal ? "closeFinal__btn" : ""} onClick={() => setShowFinalModal(false)}>
             X
           </button>
-          <form className={thanks ? "hide" : ""} onSubmit={(e) => sendEmail(e)}>
+          <form className={thanks ? "hide" : ""} onSubmit={(e) => handleNewBooking(e)}>
             <input type="text" name="place" value={place} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />
             <input type="text" name="date" value={date} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />
             <input type="text" name="type" value={type} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />
-            {/* <input type="text" name="name" placeholder="NOMBRE Y APELLIDOS" />
-            <input type="text" name="birth" placeholder="FECHA DE NACIMIENTO" />
-            <input type="text" name="phone" placeholder="TELEFONO DE CONTACTO" />
-            <input type="text" name="mail" placeholder="CORREO ELECTRONICO" />
-            <input type="text" name="dni" placeholder="DNI O PASAPORTE" /> */}
+
             {thirdScreen ? (
               <div>
                 <input
@@ -918,15 +933,23 @@ const Viaje = () => {
                           <article className="calendario__hora" id="SemiBold">
                             <article className="calendario__hora_bloque">
                               <article className="calendario__hora-nav">
-                                <p onClick={addHour}>+ </p>
-                                <p>{hour}</p>
-                                <p onClick={substractHour}>- </p>
+                                <p className="calendar_p" onClick={addHour}>
+                                  +
+                                </p>
+                                <p className="calendar_p">{hour}</p>
+                                <p className="calendar_p" onClick={substractHour}>
+                                  -
+                                </p>
                               </article>
                               :
                               <article className="calendario__hora-nav">
-                                <p onClick={addMinute}>+ </p>
-                                <p>{minute}0</p>
-                                <p onClick={substractMinute}>- </p>
+                                <p className="calendar_p" onClick={addMinute}>
+                                  +
+                                </p>
+                                <p className="calendar_p">{minute}0</p>
+                                <p className="calendar_p" onClick={substractMinute}>
+                                  -
+                                </p>
                               </article>
                             </article>
                           </article>
@@ -1023,7 +1046,7 @@ const Viaje = () => {
 
                 {newBooking.met ? (
                   <button
-                    className="type__select-dom"
+                    className="type__select-dom safari_only"
                     onClick={(e) => {
                       e.preventDefault();
                       toggleMetSelect();
@@ -1255,7 +1278,7 @@ const Viaje = () => {
                   }
                 />
                 {alert && <p style={{ color: "#ef0808" }}>Rellene todos los campos</p>}
-                <button className="modal__submitButton" onClick={(e) => changeToThird(e)}>
+                <button className="modal__submitButton safari_only" onClick={(e) => changeToThird(e)}>
                   CONTINUAR
                 </button>
               </div>

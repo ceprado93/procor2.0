@@ -68,9 +68,7 @@ const Serologico = () => {
         </div>
       </section>
       <section className="small__text">
-        <p>
-          Esta prueba es de autorrealización, no de autodiagnóstico, este tiene que ser diagnosticado por un médico.
-        </p>
+        <p>Esta prueba es de autorrealización, no de autodiagnóstico, este tiene que ser diagnosticado por un médico.</p>
         <p>
           La prueba suplementaria es una <strong>serología</strong> cuantitativa Elisa.
         </p>
@@ -78,7 +76,7 @@ const Serologico = () => {
       </section>
       <section className="fixed--btn">
         <p id="SemiBold" style={{ marginTop: "2rem", marginBottom: "0rem", fontSize: "2rem" }}>
-          30€
+          20€
         </p>
         <div className=" boton--producto" style={{ paddingTop: "0rem" }}>
           <button onClick={click} className="hero_link">

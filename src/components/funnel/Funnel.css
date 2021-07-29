@@ -255,12 +255,15 @@
   margin: auto;
   padding: 5px 0;
   background-color: #eeeaea;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .calendario__hora_bloque {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 2rem 0;
 }
 
 .calendario__hora-nav {
@@ -457,9 +460,14 @@
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) and (stroke-color: transparent) {
     .safari_only {
-      padding: 1.22rem 2rem;
-      line-height: 0;
+      padding: 1rem 2rem !important;
+      line-height: 1rem !important;
       color: #848484;
+      -webkit-appearance: none;
+    }
+
+    .calendar_p {
+      margin: 20px 0 !important;
     }
   }
 }

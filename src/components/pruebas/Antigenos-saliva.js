@@ -47,8 +47,12 @@ const AntigenosSaliva = () => {
       {qtyModal && (
         <div className="qty__modal">
           <div className="qty__form">
+            <button className="pack__closeButton" onClick={() => setqtyModal(false)}>
+              X
+            </button>
+            <h2> Packs antígenos de saliva</h2>
             <select className="form-control-select" onChange={selectQty} style={{ width: "80%" }}>
-              <option>Seleccione cantidad</option>
+              <option>Seleccione cantidad </option>
               <option>1ud -- 25€</option>
               <option>3ud -- 67,5€</option>
               <option>5ud -- 99€</option>

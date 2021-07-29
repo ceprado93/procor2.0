@@ -8,6 +8,7 @@ import antigenos from "../../assets/antigenos3.png";
 import pcr from "../../assets/pcr3.png";
 import saliva from "../../assets/anticuerpos-saliva3.png";
 import serologico from "../../assets/serologico3.png";
+import tienda from "../../assets/Tienda.jpg";
 
 const Tienda = () => {
   useLayoutEffect(() => {
@@ -21,7 +22,9 @@ const Tienda = () => {
             <Col xs={12} sm={6} lg={4}>
               <Link to="/antigenos-saliva">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
-                  <article className="articleCard" style={{ backgroundImage: `url(${antigenosSaliva})`, backgroundPosition: "center" }}></article>
+                  <article className="articleCard" style={{ backgroundImage: `url(${antigenosSaliva})`, backgroundPosition: "center" }}>
+                    <div className="articleCard__lowBlur"></div>
+                  </article>
                   <h1 id="SemiBold">
                     Antigenos<br></br> saliva
                   </h1>
@@ -31,7 +34,9 @@ const Tienda = () => {
             <Col xs={12} sm={6} lg={4}>
               <Link to="/pcr-saliva">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
-                  <article className="articleCard" style={{ backgroundImage: `url(${pcr})`, backgroundPosition: "center" }}></article>
+                  <article className="articleCard" style={{ backgroundImage: `url(${pcr})`, backgroundPosition: "center" }}>
+                    <div className="articleCard__lowBlur"></div>
+                  </article>
                   <h1 id="SemiBold">
                     PCR<br></br> saliva
                   </h1>
@@ -41,7 +46,9 @@ const Tienda = () => {
             <Col xs={12} sm={6} lg={4}>
               <Link to="/anticuerpos-saliva">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
-                  <article className="articleCard" style={{ backgroundImage: `url(${serologico})`, backgroundPosition: "center" }}></article>
+                  <article className="articleCard" style={{ backgroundImage: `url(${saliva})`, backgroundPosition: "center" }}>
+                    <div className="articleCard__lowBlur"></div>
+                  </article>
                   <h1 id="SemiBold">
                     Anticuerpos <br></br> saliva
                   </h1>
@@ -51,17 +58,22 @@ const Tienda = () => {
             <Col xs={12} sm={6} lg={4}>
               <Link to="/igm-igg">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
-                  <article className="articleCard" style={{ backgroundImage: `url(${saliva})`, backgroundPosition: "center" }}></article>
+                  <article className="articleCard" style={{ backgroundImage: `url(${serologico})`, backgroundPosition: "center" }}>
+                    <div className="articleCard__lowBlur"></div>
+                  </article>
                   <h1 id="SemiBold">
                     IGM / <br></br> IGG
                   </h1>
                 </div>
               </Link>
             </Col>
+
             <Col xs={12} sm={6} lg={4}>
               <Link to="/antigenos-25">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
-                  <article className="articleCard" style={{ backgroundImage: `url(${antigenos})`, backgroundPosition: "center" }}></article>
+                  <article className="articleCard" style={{ backgroundImage: `url(${antigenos})`, backgroundPosition: "center" }}>
+                    <div className="articleCard__lowBlur"></div>
+                  </article>
                   <h1 id="SemiBold">
                     Pack 25<br></br> [Antigenos]
                   </h1>
@@ -72,7 +84,10 @@ const Tienda = () => {
             <Col xs={12} sm={6} lg={4}>
               <Link to="/necesito-test">
                 <div style={{ position: "relative", textalign: "center", height: "100%" }} id="article__destacadas">
-                  <article className="articleCard" style={{ backgroundImage: `url(${serologico})`, backgroundPosition: "center" }}></article>
+                  <article className="articleCard" style={{ backgroundImage: `url(${tienda})`, backgroundPosition: "center" }}>
+                    {" "}
+                    <div className="articleCard__midBlur"></div>
+                  </article>
                   <h1 id="SemiBold">
                     NO SE <br></br>CUAL NECESITO
                   </h1>

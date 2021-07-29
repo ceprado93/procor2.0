@@ -16,3 +16,29 @@ body {
 #SemiBold {
   font-family: Montserrat Semi;
 }
+
+.Toastify__toast--default {
+  background: transparent !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.Toastify__toast-container {
+  width: 500px !important;
+}
+
+.Toastify__toast {
+  width: 500px !important;
+  text-align: center !important;
+}
+
+@media (max-width: 575px) {
+  .Toastify__toast-container {
+    width: 100vw !important;
+  }
+
+  .Toastify__toast {
+    width: 100vw !important;
+    padding: 0 10px !important;
+    text-align: center !important;
+  }
+}
