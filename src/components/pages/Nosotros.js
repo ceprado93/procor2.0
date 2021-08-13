@@ -80,7 +80,7 @@ const Nosotros = () => {
           <article>
             <img src={Persona} alt="valores" />
             <h3 id="SemiBold">Valores</h3>
-            <p>Nuestros valores se basan en la trasnsparencia y la seguridad </p>
+            <p>Nuestros valores se basan en la transparencia y la seguridad </p>
           </article>
         </div>
         {/* <div className="mision">

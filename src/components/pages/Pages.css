@@ -18,6 +18,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.first__modal button {
+  background-color: transparent;
+  border: none;
+  padding: 2rem;
+  font-size: 1.6rem;
+  position: absolute;
+  top: 0%;
+  right: 0%;
 }
 
 .first__modal h2 {

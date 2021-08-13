@@ -19,6 +19,18 @@ registerLocale("es", es);
 const Reservas = () => {
   const [dataForm, setDataForm] = useState({
     horareserva: "",
+    name: "",
+    lastName: "",
+    nacimiento: "",
+    phone: "",
+    email: "",
+    dni: "",
+    sintomas: "",
+    contacto: "",
+    vuelo: "",
+    prueba: "",
+    lugar: "",
+    domicilio: "",
   });
   const [startDate, setStartDate] = useState(new Date());
   const [yesterday, setYesterday] = useState(new Date());
@@ -31,11 +43,6 @@ const Reservas = () => {
   const [minute3, setMinute3] = useState(0);
   const [show, setShow] = useState(true);
   const [showAlert, setShowAlert] = useState(false);
-  const [propsReserva, setHoraReserva] = useState({
-    hora: hour,
-    minuto: minute,
-    dia: startDate,
-  });
 
   const [numForms, setNumForms] = useState(1);
 
@@ -46,21 +53,6 @@ const Reservas = () => {
     setYesterday(d);
     initialHour();
   }, []);
-
-  useEffect(() => {
-    initialHour();
-  }, [startDate]);
-
-  useEffect(() => {
-    const dia = startDate.toString();
-    const diacorto = dia.substr(0, 15);
-    setDataForm((dataForm) => {
-      return {
-        ...dataForm,
-        diareserva1: diacorto,
-      };
-    });
-  }, [dataForm.horareserva1]);
 
   useEffect(() => {
     initialHour();
@@ -80,51 +72,15 @@ const Reservas = () => {
     }
   }
 
-  function loadDate(e) {
-    e.preventDefault();
-
-    let dateWithTime;
-    if (!oddminute) {
-      dateWithTime = hour + "h" + minute + 0;
-    } else if (oddminute) {
-      dateWithTime = hour + "h" + minute + 5;
-    }
-    setDataForm((dataForm) => {
-      return {
-        ...dataForm,
-        horareserva1: dateWithTime,
-      };
-    });
-  }
-
   function handleHide() {
     setShow(false);
-  }
-
-  async function handleNewBooking(e) {
-    e.preventDefault();
-
-    const cargaUtil = JSON.stringify(dataForm);
-
-    const respuesta = await fetch(`https://nuevo.procorlab.es/citas.php`, {
-      method: "POST",
-      body: cargaUtil,
-    });
-
-    const exitoso = await respuesta.json();
-    if (exitoso) {
-      console.log(exitoso);
-      sendEmailReserva(e);
-    } else {
-      console.log("error");
-    }
   }
 
   function sendEmailReserva(e) {
     e.preventDefault();
     notify();
     setShowAlert(true);
-    emailjs.sendForm("service_ms36otd", "template_rff1lo3", e.target, "user_29SCJ5tSmyhfUETa03XNu").then(
+    emailjs.sendForm("service_zdm19a7", "template_jn2p0fk", e.target, "user_EktQO9C8ozpQ9gkNcisLf").then(
       (result) => {
         console.log(result.text);
       },
@@ -145,10 +101,7 @@ const Reservas = () => {
         console.log(error.text);
       }
     );
-
     e.target.reset();
-    notify();
-    setShowAlert(true);
   }
 
   function notify() {
@@ -359,7 +312,7 @@ const Reservas = () => {
           <section className="contact__form">
             {numForms === 1 ? (
               <>
-                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
+                <form id="contact-form" onSubmit={sendEmailReserva}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -398,7 +351,7 @@ const Reservas = () => {
               </>
             ) : numForms === 2 ? (
               <>
-                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
+                <form id="contact-form" onSubmit={sendEmailReserva}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -458,7 +411,7 @@ const Reservas = () => {
               </>
             ) : numForms === 3 ? (
               <>
-                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
+                <form id="contact-form" onSubmit={sendEmailReserva}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -539,7 +492,7 @@ const Reservas = () => {
               </>
             ) : numForms === 4 ? (
               <>
-                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
+                <form id="contact-form" onSubmit={sendEmailReserva}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -640,7 +593,7 @@ const Reservas = () => {
               </>
             ) : (
               <>
-                <form id="contact-form" onSubmit={handleNewBooking} onChange={(e) => loadDate(e)}>
+                <form id="contact-form" onSubmit={sendEmailReserva}>
                   <ReservasForm
                     handleInputChange={(e) => handleInputChange(e)}
                     date={startDate}
@@ -815,7 +768,7 @@ const Reservas = () => {
 
                 <p id="pequeño">
                   De acuerdo con la legislación vigente sobre Protección de Datos de Carácter Personal, le informamos que los datos que nos facilite se incluirán en el sistema de tratamiento de
-                  Corporación Auditiva InnoAudio, CIF: B88505953, Avenida de la Industria, 4, Edificio 1, Portal 2, Planta 3º, 28108 Alcobendas, Madrid. Tlf: 917 36 42 41, Correo electrónico:
+                  Corporación Auditiva InnoAudio, CIF: B88505953, Avenida de la Industria, 4, Edificio 1, Portal 2, Planta 3º, 28108 Alcobendas, Madrid. Tlf: 913 436 516, Correo electrónico:
                   info@procorlab.es, con el propósito de dar respuesta a su solicitud. Los datos que usted proporcione los guardaremos mientras se mantenga la relación comercial o durante los años
                   necesarios para cumplir con obligaciones legales. Corporación Auditiva InnoAudio le informa que tratará los datos de forma lícita, transparente y actualizada. Es por ello que
                   Corporación Auditiva InnoAudio se compromete a adoptar las medidas razonables para que los datos se supriman o rectifiquen sin demora cuando sea necesario. Los datos no se cederán

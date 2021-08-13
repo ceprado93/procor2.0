@@ -255,8 +255,8 @@
   margin: auto;
   padding: 5px 0;
   background-color: #eeeaea;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 }
 
 .calendario__hora_bloque {
@@ -274,7 +274,7 @@
 }
 
 .calendario__hora-nav p {
-  margin: 10px 0;
+  margin: 0px 0;
 }
 
 .calendario__hora-nav img {

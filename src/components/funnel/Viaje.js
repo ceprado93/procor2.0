@@ -34,8 +34,21 @@ const Viaje = () => {
 
   const [filled, setFilled] = useState({ place: false, date: false, type: false });
   const [newBooking, setNewBooking] = useState({
+    name: undefined,
+    birth: undefined,
+    phone: undefined,
+    mail: undefined,
+    dni: undefined,
+    symptoms: undefined,
+    contact: undefined,
     destination: undefined,
     fligthDate: undefined,
+    type: undefined,
+    test: undefined,
+    place: undefined,
+    met: undefined,
+    postal: undefined,
+    testDate: "",
   });
   const [size, setSize] = useState(false);
 
@@ -181,32 +194,12 @@ const Viaje = () => {
     newBooking.place && newBooking.place2 && newBooking.met && newBooking.name && newBooking.birth && newBooking.mail && newBooking.phone && newBooking.dni ? setThirdScreen(true) : setAlert(true);
   };
 
-  async function handleNewBooking(e) {
-    e.preventDefault();
-
-    const cargaUtil = JSON.stringify(newBooking);
-
-    const respuesta = await fetch(`https://nuevo.procorlab.es/prueba.php`, {
-      method: "POST",
-      body: cargaUtil,
-    });
-
-    const exitoso = await respuesta.json();
-    if (exitoso) {
-      console.log(exitoso);
-    } else {
-      console.log("error");
-    }
-    sendEmail(e);
-  }
-
   function sendEmail(e) {
     e.preventDefault();
 
-    emailjs.send("service_ms36otd", "template_4afiukh", newBooking, "user_29SCJ5tSmyhfUETa03XNu").then(
+    emailjs.send("service_dha8dni", "template_sh5v44l", newBooking, "user_mooLGAiB6ToYwmGhZNNdc").then(
       (result) => {
         console.log(result.text);
-        setThanks(true);
       },
       (error) => {
         console.log(error.text);
@@ -327,6 +320,37 @@ const Viaje = () => {
         const newMinute = minute - 1;
         setMinute(newMinute);
       }
+    }
+  }
+
+  async function handleNewBooking(e) {
+    // e.preventDefault();
+    // console.log(e.target.value);
+    // bookingService
+    //   .saveBooking(newBooking)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     setThanks(true);
+    //   })
+    //   .catch((err) => console.log(err));
+    // Codificar nuestro videojuego como JSON
+    const cargaUtil = JSON.stringify(newBooking);
+
+    // ¡Y enviarlo!
+    // const respuesta = await fetch(`https://nuevo.procorlab.es/prueba.php`, {
+    //   method: "POST",
+    //   body: cargaUtil,
+    // });
+
+    const respuesta = await fetch(`https://nuevo.procorlab.es/prueba.php`);
+
+    const exitoso = await respuesta.json();
+    if (exitoso) {
+      console.log(exitoso);
+
+      setThanks(true);
+    } else {
+      console.log("error");
     }
   }
 
@@ -781,7 +805,7 @@ const Viaje = () => {
           <button className={showFinalModal ? "closeFinal__btn" : ""} onClick={() => setShowFinalModal(false)}>
             X
           </button>
-          <form className={thanks ? "hide" : ""} onSubmit={(e) => handleNewBooking(e)}>
+          <form className={thanks ? "hide" : ""} onSubmit={(e) => sendEmail(e)}>
             {/* <form className={thanks ? "hide" : ""} onSubmit={(e) => handleNewBooking(e)}> */}
             <input type="text" name="place" value={place} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />
             <input type="text" name="date" value={date} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />

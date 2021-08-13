@@ -189,37 +189,18 @@ const Viaje = () => {
     newBooking.place && newBooking.place2 && newBooking.met && newBooking.name && newBooking.birth && newBooking.mail && newBooking.phone && newBooking.dni ? setThirdScreen(true) : setAlert(true);
   };
 
-  async function handleNewBooking(e) {
-    e.preventDefault();
-
-    const cargaUtil = JSON.stringify(newBooking);
-
-    const respuesta = await fetch(`https://nuevo.procorlab.es/prueba.php`, {
-      method: "POST",
-      body: cargaUtil,
-    });
-
-    const exitoso = await respuesta.json();
-    if (exitoso) {
-      console.log(exitoso);
-      sendEmail(e);
-    } else {
-      console.log("error");
-    }
-  }
-
   function sendEmail(e) {
     e.preventDefault();
 
-    emailjs.send("service_ms36otd", "template_8u35ma8", newBooking, "user_29SCJ5tSmyhfUETa03XNu").then(
+    emailjs.send("service_dha8dni", "template_vz1b03c", newBooking, "user_mooLGAiB6ToYwmGhZNNdc").then(
       (result) => {
         console.log(result.text);
-        setThanks(true);
       },
       (error) => {
         console.log(error.text);
       }
     );
+    setThanks(true);
   }
 
   function addHour() {
@@ -853,11 +834,15 @@ const Viaje = () => {
           <button className={showFinalModal ? "closeFinal__btn" : ""} onClick={() => setShowFinalModal(false)}>
             X
           </button>
-          <form className={thanks ? "hide" : ""} onSubmit={(e) => handleNewBooking(e)}>
+          <form className={thanks ? "hide" : ""} onSubmit={(e) => sendEmail(e)}>
             <input type="text" name="place" value={place} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />
             <input type="text" name="date" value={date} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />
             <input type="text" name="type" value={type} style={{ visibility: "hidden", padding: 0, marginTop: 0, height: 1 }} />
-
+            {/* <input type="text" name="name" placeholder="NOMBRE Y APELLIDOS" />
+            <input type="text" name="birth" placeholder="FECHA DE NACIMIENTO" />
+            <input type="text" name="phone" placeholder="TELEFONO DE CONTACTO" />
+            <input type="text" name="mail" placeholder="CORREO ELECTRONICO" />
+            <input type="text" name="dni" placeholder="DNI O PASAPORTE" /> */}
             {thirdScreen ? (
               <div>
                 <input

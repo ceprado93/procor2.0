@@ -9,7 +9,7 @@ const InfoKit = () => {
   function sendEmail(e) {
     e.preventDefault();
 
-    emailjs.sendForm("service_ms36otd", "template_96eo56f", e.target, "user_29SCJ5tSmyhfUETa03XNu").then(
+    emailjs.sendForm("service_zdm19a7", "template_vq5mawd", e.target, "user_EktQO9C8ozpQ9gkNcisLf").then(
       (result) => {
         console.log(result.text);
       },
@@ -91,7 +91,7 @@ const InfoKit = () => {
 
                 <p id="pequeño">
                   De acuerdo con la legislación vigente sobre Protección de Datos de Carácter Personal, le informamos que los datos que nos facilite se incluirán en el sistema de tratamiento de
-                  Corporación Auditiva InnoAudio, CIF: B88505953, Avenida de la Industria, 4, Edificio 1, Portal 2, Planta 3º, 28108 Alcobendas, Madrid. Tlf: 917 36 42 41, Correo electrónico:
+                  Corporación Auditiva InnoAudio, CIF: B88505953, Avenida de la Industria, 4, Edificio 1, Portal 2, Planta 3º, 28108 Alcobendas, Madrid. Tlf: 913 436 516, Correo electrónico:
                   info@procorlab.es, con el propósito de dar respuesta a su solicitud. Los datos que usted proporcione los guardaremos mientras se mantenga la relación comercial o durante los años
                   necesarios para cumplir con obligaciones legales. Corporación Auditiva InnoAudio le informa que tratará los datos de forma lícita, transparente y actualizada. Es por ello que
                   Corporación Auditiva InnoAudio se compromete a adoptar las medidas razonables para que los datos se supriman o rectifiquen sin demora cuando sea necesario. Los datos no se cederán
@@ -156,7 +156,7 @@ const InfoKit = () => {
 
                 <p id="pequeño">
                   In accordance with current legislation on Protection of Personal Data, we inform you that the data you provide will be included in the treatment system of Corporación Auditiva
-                  InnoAudio, CIF: B88505953, Avenida de la Industria, 4, Edificio 1, Portal 2 , 3rd Floor, 28108 Alcobendas, Madrid. Tlf: 917 36 42 41, Email: info@procorlab.es, in order to respond to
+                  InnoAudio, CIF: B88505953, Avenida de la Industria, 4, Edificio 1, Portal 2 , 3rd Floor, 28108 Alcobendas, Madrid. Tlf: 913 436 516, Email: info@procorlab.es, in order to respond to
                   your request. The data that you provide will be kept as long as the commercial relationship is maintained or during the years necessary to comply with legal obligations. Corporación
                   Auditiva InnoAudio informs you that it will treat the data in a lawful, transparent and updated manner. That is why Corporación Auditiva InnoAudio undertakes to adopt reasonable
                   measures so that the data is deleted or rectified without delay when necessary. The data will not be transferred under any circumstances to third parties, except in cases where there

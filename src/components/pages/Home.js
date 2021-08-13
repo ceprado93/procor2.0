@@ -59,6 +59,7 @@ const Home = () => {
       {!toogleOption && (
         <div className="first__window">
           <div className="first__modal">
+            <button onClick={() => sendAction()}>X</button>
             <h2>
               ¿Necesitas un test?<br></br> Reserva ya tu cita
             </h2>
